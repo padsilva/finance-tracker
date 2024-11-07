@@ -1,0 +1,6 @@
+{
+  "sonarlint.connectedMode.project": {
+    "connectionId": "padsilva",
+    "projectKey": "padsilva_finance-tracker"
+  }
+}
