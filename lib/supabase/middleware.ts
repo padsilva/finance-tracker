@@ -30,16 +30,19 @@ export async function updateSession(request: NextRequest) {
     },
   );
 
-  // refreshing the auth token
-  const user = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
-  // protected routes
-  if (request.nextUrl.pathname.startsWith("/protected") && user.error) {
-    return NextResponse.redirect(new URL("/sign-in", request.url));
+  if (!user && request.nextUrl.pathname.startsWith("/dashboard")) {
+    // no user, potentially respond by redirecting the user to the landing page
+    const url = request.nextUrl.clone();
+    url.pathname = "/";
+    return NextResponse.redirect(url);
   }
 
-  if (request.nextUrl.pathname === "/" && !user.error) {
-    return NextResponse.redirect(new URL("/protected", request.url));
+  if (request.nextUrl.pathname === "/") {
+    return NextResponse.rewrite(new URL("/signin", request.url));
   }
 
   return supabaseResponse;

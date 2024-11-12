@@ -1,9 +1,3 @@
-import { MainLayout } from "@/components/main-layout";
-
-export default function Home() {
-  return (
-    <div>
-      <MainLayout />
-    </div>
-  );
+export default async function RootPage() {
+  return <p>Welcome to the site</p>; // Placeholder, hidden by rewrite
 }
