@@ -1,3 +1,5 @@
-export default async function RootPage() {
-  return <p>Welcome to the site</p>; // Placeholder, hidden by rewrite
+import { redirect } from "next/navigation";
+
+export default function RootPage() {
+  redirect("/signin");
 }
