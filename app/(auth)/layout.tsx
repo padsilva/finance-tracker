@@ -13,7 +13,7 @@ export default function AuthLayout({
       <main className="mx-auto max-w-5xl px-8 py-12">
         <div className="flex flex-row gap-12">
           <HeroSection />
-          {children}
+          <div className="flex-1">{children}</div>
         </div>
       </main>
       <Footer />

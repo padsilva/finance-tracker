@@ -41,9 +41,5 @@ export async function updateSession(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
-  if (request.nextUrl.pathname === "/") {
-    return NextResponse.rewrite(new URL("/signin", request.url));
-  }
-
   return supabaseResponse;
 }
