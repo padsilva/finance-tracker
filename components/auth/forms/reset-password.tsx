@@ -1,14 +1,6 @@
 "use client";
 
-import {
-  AlertCircle,
-  ArrowLeft,
-  CheckCircle,
-  Eye,
-  EyeOff,
-  Loader2,
-  Lock,
-} from "lucide-react";
+import { ArrowLeft, Loader2, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -18,25 +10,18 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { startTransition, useActionState, useState } from "react";
+import { startTransition, useActionState } from "react";
 import { resetPassword } from "@/app/(auth)/actions";
 import Link from "next/link";
-import { Alert, AlertTitle } from "@/components/ui/alert";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
 import {
   resetPasswordSchema,
   ResetPasswordValues,
 } from "@/utils/validation-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { InputField } from "./ui/input-field";
+import { FormAlert } from "./ui/form-alert";
 
 export const ResetPasswordForm = () => {
   const form = useForm<ResetPasswordValues>({
@@ -45,9 +30,6 @@ export const ResetPasswordForm = () => {
   });
 
   const [state, formAction, isPending] = useActionState(resetPassword, null);
-
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const onSubmit = (data: ResetPasswordValues) => {
     startTransition(() => {
@@ -70,97 +52,22 @@ export const ResetPasswordForm = () => {
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <div className="flex flex-col gap-6">
               <div className="grid w-full items-center gap-4">
-                {state?.error && (
-                  <Alert variant="destructive">
-                    <AlertCircle className="h-4 w-4" />
-                    <AlertTitle>{state.error}</AlertTitle>
-                  </Alert>
-                )}
-                {state?.success && (
-                  <Alert variant="default">
-                    <CheckCircle className="h-4 w-4" />
-                    <AlertTitle>{state.success}</AlertTitle>
-                  </Alert>
-                )}
-                <FormField
+                <FormAlert error={state?.error} success={state?.success} />
+                <InputField
                   control={form.control}
+                  icon={<Lock size={16} />}
+                  label="Password"
                   name="password"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Password</FormLabel>
-                      <FormControl>
-                        <div className="relative">
-                          <Button
-                            className="absolute left-0 top-0"
-                            disabled
-                            variant="ghost"
-                          >
-                            <Lock size={16} />
-                          </Button>
-                          <Input
-                            className="pl-12"
-                            placeholder="Enter your password"
-                            type={showPassword ? "text" : "password"}
-                            {...field}
-                          />
-                          <Button
-                            className="absolute right-0 top-0 text-muted-foreground"
-                            onClick={() => setShowPassword(!showPassword)}
-                            type="button"
-                            variant="ghost"
-                          >
-                            {showPassword ? (
-                              <EyeOff size={16} />
-                            ) : (
-                              <Eye size={16} />
-                            )}
-                          </Button>
-                        </div>
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
+                  placeholder="Enter your password"
+                  type="password"
                 />
-                <FormField
+                <InputField
                   control={form.control}
+                  icon={<Lock size={16} />}
+                  label="Confirm Password"
                   name="confirmPassword"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Confirm Password</FormLabel>
-                      <FormControl>
-                        <div className="relative">
-                          <Button
-                            className="absolute left-0 top-0"
-                            disabled
-                            variant="ghost"
-                          >
-                            <Lock size={16} />
-                          </Button>
-                          <Input
-                            className="pl-12"
-                            placeholder="Confirm your password"
-                            type={showConfirmPassword ? "text" : "password"}
-                            {...field}
-                          />
-                          <Button
-                            className="absolute right-0 top-0 text-muted-foreground"
-                            onClick={() =>
-                              setShowConfirmPassword(!showConfirmPassword)
-                            }
-                            type="button"
-                            variant="ghost"
-                          >
-                            {showConfirmPassword ? (
-                              <EyeOff size={16} />
-                            ) : (
-                              <Eye size={16} />
-                            )}
-                          </Button>
-                        </div>
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
+                  placeholder="Confirm your password"
+                  type="password"
                 />
               </div>
               <Button className="w-full" disabled={isPending} type="submit">

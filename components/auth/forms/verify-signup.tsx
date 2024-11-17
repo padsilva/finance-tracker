@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  AlertCircle,
-  ArrowLeft,
-  CheckCircle,
-  Loader2,
-  Mail,
-} from "lucide-react";
+import { ArrowLeft, Loader2, Mail } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -25,7 +19,7 @@ import { resendSchema, ResendValues } from "@/utils/validation-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { startTransition, useActionState } from "react";
 import { resendVerificationEmail } from "@/app/(auth)/actions";
-import { Alert, AlertTitle } from "@/components/ui/alert";
+import { FormAlert } from "./ui/form-alert";
 
 export const VerifySignUpForm = () => {
   const user = useUserStore((state) => state.user);
@@ -67,18 +61,7 @@ export const VerifySignUpForm = () => {
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <div className="flex flex-col gap-6">
-              {state?.error && (
-                <Alert variant="destructive">
-                  <AlertCircle className="h-4 w-4" />
-                  <AlertTitle>{state.error}</AlertTitle>
-                </Alert>
-              )}
-              {state?.success && (
-                <Alert variant="default">
-                  <CheckCircle className="h-4 w-4" />
-                  <AlertTitle>{state.success}</AlertTitle>
-                </Alert>
-              )}
+              <FormAlert error={state?.error} success={state?.success} />
               <ConfirmationListener />
               <Button className="w-full" disabled={isPending} type="submit">
                 {isPending ? (

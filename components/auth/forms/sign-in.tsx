@@ -1,14 +1,6 @@
 "use client";
 
-import {
-  AlertCircle,
-  ArrowRight,
-  Eye,
-  EyeOff,
-  Loader2,
-  Lock,
-  Mail,
-} from "lucide-react";
+import { ArrowRight, Loader2, Lock, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -18,22 +10,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { startTransition, useActionState, useState } from "react";
+import { startTransition, useActionState } from "react";
 import { signin } from "@/app/(auth)/actions";
 import Link from "next/link";
-import { Alert, AlertTitle } from "@/components/ui/alert";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
 import { signInSchema, SignInValues } from "@/utils/validation-schema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { InputField } from "./ui/input-field";
+import { FormAlert } from "./ui/form-alert";
 
 export const SignInForm = () => {
   const form = useForm<SignInValues>({
@@ -45,7 +30,6 @@ export const SignInForm = () => {
   });
 
   const [state, formAction, isPending] = useActionState(signin, null);
-  const [showPassword, setShowPassword] = useState(false);
 
   const onSubmit = (data: SignInValues) => {
     startTransition(() => {
@@ -68,90 +52,21 @@ export const SignInForm = () => {
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <div className="flex flex-col gap-6">
               <div className="grid w-full items-center gap-4">
-                {state?.error && (
-                  <Alert variant="destructive">
-                    <AlertCircle className="h-4 w-4" />
-                    <AlertTitle>{state.error}</AlertTitle>
-                  </Alert>
-                )}
-                <FormField
+                <FormAlert error={state?.error} />
+                <InputField
                   control={form.control}
+                  icon={<Mail size={16} />}
+                  label="Email"
                   name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Email</FormLabel>
-                      <FormControl>
-                        <div className="relative">
-                          <Button
-                            className="absolute left-0 top-0"
-                            disabled
-                            variant="ghost"
-                          >
-                            <Mail size={16} />
-                          </Button>
-                          <Input
-                            className="pl-12"
-                            placeholder="Enter your email"
-                            {...field}
-                          />
-                        </div>
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
+                  placeholder="Enter your email"
                 />
-                <FormField
+                <InputField
                   control={form.control}
+                  icon={<Lock size={16} />}
+                  label="Password"
                   name="password"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="flex items-center justify-between">
-                        <>
-                          Password
-                          <Button
-                            asChild
-                            className="p-0"
-                            size="sm"
-                            variant="link"
-                          >
-                            <Link href="/forgot-password">
-                              Forgot password?
-                            </Link>
-                          </Button>
-                        </>
-                      </FormLabel>
-                      <FormControl>
-                        <div className="relative">
-                          <Button
-                            className="absolute left-0 top-0"
-                            disabled
-                            variant="ghost"
-                          >
-                            <Lock size={16} />
-                          </Button>
-                          <Input
-                            className="pl-12"
-                            placeholder="Enter your password"
-                            type={showPassword ? "text" : "password"}
-                            {...field}
-                          />
-                          <Button
-                            className="absolute right-0 top-0 text-muted-foreground"
-                            onClick={() => setShowPassword(!showPassword)}
-                            type="button"
-                            variant="ghost"
-                          >
-                            {showPassword ? (
-                              <EyeOff size={16} />
-                            ) : (
-                              <Eye size={16} />
-                            )}
-                          </Button>
-                        </div>
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
+                  placeholder="Enter your password"
+                  type="password"
                 />
               </div>
               <Button className="w-full" disabled={isPending} type="submit">
