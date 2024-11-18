@@ -48,7 +48,7 @@ export function InputField<T extends FieldValues>({
                 {icon}
               </Button>
               <Input
-                className="pl-12"
+                className={isPassword ? "px-12" : "pl-12"}
                 placeholder={placeholder}
                 type={isPassword && !showPassword ? "password" : "text"}
                 {...field}
