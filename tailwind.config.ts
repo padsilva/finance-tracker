@@ -51,6 +51,7 @@ const config: Config = {
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
         },
+        "nav-footer": "hsl(var(--nav-footer))",
       },
       borderRadius: {
         lg: "var(--radius)",
