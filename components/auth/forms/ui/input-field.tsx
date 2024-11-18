@@ -13,7 +13,7 @@ import { FieldValues, Path, UseFormReturn } from "react-hook-form";
 
 interface FormFieldProps<T extends FieldValues> {
   name: Path<T>;
-  label: string;
+  label: React.ReactNode;
   type?: React.ComponentProps<"input">["type"];
   placeholder: string;
   icon: React.ReactNode;
@@ -48,7 +48,7 @@ export function InputField<T extends FieldValues>({
                 {icon}
               </Button>
               <Input
-                className="pl-12"
+                className={isPassword ? "px-12" : "pl-12"}
                 placeholder={placeholder}
                 type={isPassword && !showPassword ? "password" : "text"}
                 {...field}

@@ -68,7 +68,14 @@ export const SignInForm = () => {
                 <InputField
                   control={form.control}
                   icon={<Lock size={16} />}
-                  label="Password"
+                  label={
+                    <div className="flex items-center justify-between">
+                      Password
+                      <Button asChild className="p-0" size="sm" variant="link">
+                        <Link href="/forgot-password">Forgot password?</Link>
+                      </Button>
+                    </div>
+                  }
                   name="password"
                   placeholder="Enter your password"
                   type="password"
