@@ -13,7 +13,7 @@ import { FieldValues, Path, UseFormReturn } from "react-hook-form";
 
 interface FormFieldProps<T extends FieldValues> {
   name: Path<T>;
-  label: string;
+  label: React.ReactNode;
   type?: React.ComponentProps<"input">["type"];
   placeholder: string;
   icon: React.ReactNode;
