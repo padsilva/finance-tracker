@@ -1,6 +1,13 @@
 "use client";
 
+import { startTransition, useActionState } from "react";
+
+import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowRight, Loader2, Lock, Mail, User, UserPlus } from "lucide-react";
+import Link from "next/link";
+import { useForm } from "react-hook-form";
+
+import { signup } from "@/app/(auth)/actions";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -10,16 +17,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { startTransition, useActionState } from "react";
-import { signup } from "@/app/(auth)/actions";
-import Link from "next/link";
-import { useUserStore } from "@/stores/userStore";
 import { Form } from "@/components/ui/form";
-import { useForm } from "react-hook-form";
+import { useUserStore } from "@/stores/userStore";
 import { signUpSchema, SignUpValues } from "@/utils/validation-schema";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { InputField } from "./ui/input-field";
+
 import { FormAlert } from "./ui/form-alert";
+import { InputField } from "./ui/input-field";
 
 export const SignUpForm = () => {
   const setUser = useUserStore((state) => state.setUser);

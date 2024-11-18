@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+
 import { VerifySignUpForm } from "@/components/auth/forms/verify-signup";
 
 export default function VerifySignUpPage() {

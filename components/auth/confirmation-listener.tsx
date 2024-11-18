@@ -1,7 +1,9 @@
-import { createClient } from "@/lib/supabase/client";
+import { useEffect, useState } from "react";
+
 import { CheckCircle, RefreshCw } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+
+import { createClient } from "@/lib/supabase/client";
 
 export const ConfirmationListener = () => {
   const supabase = createClient();

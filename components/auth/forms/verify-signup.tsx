@@ -1,6 +1,15 @@
 "use client";
 
+import { startTransition, useActionState } from "react";
+
+import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowLeft, Loader2, Mail } from "lucide-react";
+import Link from "next/link";
+import { useForm } from "react-hook-form";
+
+import { resendVerificationEmail } from "@/app/(auth)/actions";
+import { ConfirmationListener } from "@/components/auth/confirmation-listener";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -9,16 +18,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { useUserStore } from "@/stores/userStore";
-import { ConfirmationListener } from "@/components/auth/confirmation-listener";
 import { Form } from "@/components/ui/form";
-import { useForm } from "react-hook-form";
+import { useUserStore } from "@/stores/userStore";
 import { resendSchema, ResendValues } from "@/utils/validation-schema";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { startTransition, useActionState } from "react";
-import { resendVerificationEmail } from "@/app/(auth)/actions";
+
 import { FormAlert } from "./ui/form-alert";
 
 export const VerifySignUpForm = () => {

@@ -1,3 +1,8 @@
+import { useState } from "react";
+
+import { Eye, EyeOff } from "lucide-react";
+import { FieldValues, Path, UseFormReturn } from "react-hook-form";
+
 import { Button } from "@/components/ui/button";
 import {
   FormControl,
@@ -7,9 +12,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Eye, EyeOff } from "lucide-react";
-import { useState } from "react";
-import { FieldValues, Path, UseFormReturn } from "react-hook-form";
 
 interface FormFieldProps<T extends FieldValues> {
   name: Path<T>;

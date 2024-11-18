@@ -1,5 +1,6 @@
-import { Alert, AlertTitle } from "@/components/ui/alert";
 import { AlertCircle, CheckCircle } from "lucide-react";
+
+import { Alert, AlertTitle } from "@/components/ui/alert";
 
 interface FormAlertProps {
   error?: string;

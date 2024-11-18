@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+
 import { EmailConfirmed } from "@/components/auth/email-confirmed";
 
 export default function EmailConfirmedPage() {

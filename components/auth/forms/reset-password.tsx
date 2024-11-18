@@ -1,6 +1,13 @@
 "use client";
 
+import { startTransition, useActionState } from "react";
+
+import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowLeft, Loader2, Lock } from "lucide-react";
+import Link from "next/link";
+import { useForm } from "react-hook-form";
+
+import { resetPassword } from "@/app/(auth)/actions";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -10,18 +17,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { startTransition, useActionState } from "react";
-import { resetPassword } from "@/app/(auth)/actions";
-import Link from "next/link";
 import { Form } from "@/components/ui/form";
-import { useForm } from "react-hook-form";
 import {
   resetPasswordSchema,
   ResetPasswordValues,
 } from "@/utils/validation-schema";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { InputField } from "./ui/input-field";
+
 import { FormAlert } from "./ui/form-alert";
+import { InputField } from "./ui/input-field";
 
 export const ResetPasswordForm = () => {
   const form = useForm<ResetPasswordValues>({
