@@ -18,11 +18,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Form } from "@/components/ui/form";
+import { Form, FormAlert } from "@/components/ui/form";
 import { useUserStore } from "@/stores/userStore";
 import { resendSchema, ResendValues } from "@/utils/validation-schema";
-
-import { FormAlert } from "./ui/form-alert";
 
 export const VerifySignUpForm = () => {
   const user = useUserStore((state) => state.user);

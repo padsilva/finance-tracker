@@ -17,11 +17,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Form } from "@/components/ui/form";
+import { Form, FormAlert, FormInputField } from "@/components/ui/form";
 import { signInSchema, SignInValues } from "@/utils/validation-schema";
-
-import { FormAlert } from "./ui/form-alert";
-import { InputField } from "./ui/input-field";
 
 export const SignInForm = () => {
   const form = useForm<SignInValues>({
@@ -61,14 +58,14 @@ export const SignInForm = () => {
             <div className="flex flex-col gap-6">
               <div className="grid w-full items-center gap-4">
                 <FormAlert error={state?.error} />
-                <InputField
+                <FormInputField
                   control={form.control}
                   icon={<Mail size={16} />}
                   label="Email"
                   name="email"
                   placeholder="Enter your email"
                 />
-                <InputField
+                <FormInputField
                   control={form.control}
                   icon={<Lock size={16} />}
                   label={

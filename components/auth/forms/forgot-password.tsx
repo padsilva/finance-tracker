@@ -17,14 +17,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Form } from "@/components/ui/form";
+import { Form, FormAlert, FormInputField } from "@/components/ui/form";
 import {
   forgotPasswordSchema,
   ForgotPasswordValues,
 } from "@/utils/validation-schema";
-
-import { FormAlert } from "./ui/form-alert";
-import { InputField } from "./ui/input-field";
 
 export const ForgotPasswordForm = () => {
   const form = useForm<ForgotPasswordValues>({
@@ -63,7 +60,7 @@ export const ForgotPasswordForm = () => {
             <div className="flex flex-col gap-6">
               <div className="grid w-full items-center gap-4">
                 <FormAlert error={state?.error} success={state?.success} />
-                <InputField
+                <FormInputField
                   control={form.control}
                   icon={<Mail size={16} />}
                   label="Email"
