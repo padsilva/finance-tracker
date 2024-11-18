@@ -11,7 +11,7 @@ export default function AuthLayout({
     <div className="flex min-h-screen flex-col">
       <NavBar />
       <main className="mx-auto max-w-5xl px-8 py-12">
-        <div className="flex flex-row gap-12">
+        <div className="flex flex-col gap-12 md:flex-row">
           <HeroSection />
           <div className="flex-1">{children}</div>
         </div>

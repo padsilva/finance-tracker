@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowLeft, Loader2, Mail } from "lucide-react";
+import { ArrowLeft, Loader2, Lock, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -44,6 +44,11 @@ export const ForgotPasswordForm = () => {
   return (
     <Card className="mx-auto max-w-md">
       <CardHeader className="text-center">
+        <div className="flex justify-center">
+          <div className="rounded-full bg-blue-100 p-5">
+            <Lock className="h-8 w-8 text-primary" />
+          </div>
+        </div>
         <CardTitle className="text-2xl">Forgot Password?</CardTitle>
         <CardDescription>
           {`Enter your email address and we'll send you a reset link`}

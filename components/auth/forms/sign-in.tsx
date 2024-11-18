@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Loader2, Lock, Mail } from "lucide-react";
+import { ArrowRight, Loader2, Lock, LogIn, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -44,6 +44,11 @@ export const SignInForm = () => {
   return (
     <Card className="mx-auto max-w-md">
       <CardHeader className="text-center">
+        <div className="flex justify-center">
+          <div className="rounded-full bg-blue-100 p-5">
+            <LogIn className="h-8 w-8 text-primary" />
+          </div>
+        </div>
         <CardTitle className="text-2xl">Welcome Back</CardTitle>
         <CardDescription>Sign in to your account</CardDescription>
       </CardHeader>
