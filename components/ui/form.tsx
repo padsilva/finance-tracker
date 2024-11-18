@@ -1,9 +1,12 @@
 "use client";
 
 import * as React from "react";
+
 import * as LabelPrimitive from "@radix-ui/react-label";
 import { Slot } from "@radix-ui/react-slot";
+import { AlertCircle, CheckCircle, Eye, EyeOff } from "lucide-react";
 import {
+  Control,
   Controller,
   ControllerProps,
   FieldPath,
@@ -12,8 +15,11 @@ import {
   useFormContext,
 } from "react-hook-form";
 
-import { cn } from "@/lib/utils";
+import { Alert, AlertTitle } from "@/components/ui/alert";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { cn } from "@/lib/utils";
 
 const Form = FormProvider;
 
@@ -170,9 +176,96 @@ const FormMessage = React.forwardRef<
 });
 FormMessage.displayName = "FormMessage";
 
+interface FormAlertProps {
+  error?: string;
+  success?: string;
+}
+
+const FormAlert = ({ error, success }: FormAlertProps) => {
+  if (!error && !success) {
+    return null;
+  }
+
+  const isError = !!error;
+  const message = error ?? success;
+
+  return (
+    <Alert variant={isError ? "destructive" : "default"}>
+      {isError ? (
+        <AlertCircle className="h-4 w-4" />
+      ) : (
+        <CheckCircle className="h-4 w-4" />
+      )}
+      <AlertTitle>{message}</AlertTitle>
+    </Alert>
+  );
+};
+
+interface FormInputFieldProps<TFieldValues extends FieldValues = FieldValues> {
+  name: FieldPath<TFieldValues>;
+  label: React.ReactNode;
+  type?: React.HTMLInputTypeAttribute;
+  placeholder: string;
+  icon: React.ReactNode;
+  control: Control<TFieldValues>;
+}
+const FormInputField = <TFieldValues extends FieldValues = FieldValues>({
+  name,
+  label,
+  type = "text",
+  placeholder,
+  icon,
+  control,
+}: FormInputFieldProps<TFieldValues>) => {
+  const [showPassword, setShowPassword] = React.useState(false);
+  const isPassword = type === "password";
+
+  return (
+    <FormField
+      control={control}
+      name={name}
+      render={({ field }) => (
+        <FormItem>
+          <FormLabel>{label}</FormLabel>
+          <FormControl>
+            <div className="relative">
+              <Button
+                className="absolute left-0 top-0"
+                disabled
+                variant="ghost"
+              >
+                {icon}
+              </Button>
+              <Input
+                className={isPassword ? "px-12" : "pl-12"}
+                placeholder={placeholder}
+                type={isPassword && !showPassword ? "password" : "text"}
+                {...field}
+              />
+              {isPassword && (
+                <Button
+                  className="absolute right-0 top-0 text-muted-foreground"
+                  onClick={() => setShowPassword(!showPassword)}
+                  type="button"
+                  variant="ghost"
+                >
+                  {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                </Button>
+              )}
+            </div>
+          </FormControl>
+          <FormMessage />
+        </FormItem>
+      )}
+    />
+  );
+};
+
 export {
   useFormField,
   Form,
+  FormAlert,
+  FormInputField,
   FormItem,
   FormLabel,
   FormControl,

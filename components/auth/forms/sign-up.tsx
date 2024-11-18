@@ -1,6 +1,13 @@
 "use client";
 
+import { startTransition, useActionState } from "react";
+
+import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowRight, Loader2, Lock, Mail, User, UserPlus } from "lucide-react";
+import Link from "next/link";
+import { useForm } from "react-hook-form";
+
+import { signup } from "@/app/(auth)/actions";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -10,16 +17,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { startTransition, useActionState } from "react";
-import { signup } from "@/app/(auth)/actions";
-import Link from "next/link";
+import { Form, FormAlert, FormInputField } from "@/components/ui/form";
 import { useUserStore } from "@/stores/userStore";
-import { Form } from "@/components/ui/form";
-import { useForm } from "react-hook-form";
 import { signUpSchema, SignUpValues } from "@/utils/validation-schema";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { InputField } from "./ui/input-field";
-import { FormAlert } from "./ui/form-alert";
 
 export const SignUpForm = () => {
   const setUser = useUserStore((state) => state.setUser);
@@ -65,21 +65,21 @@ export const SignUpForm = () => {
             <div className="flex flex-col gap-6">
               <div className="grid w-full items-center gap-4">
                 <FormAlert error={state?.error} />
-                <InputField
+                <FormInputField
                   control={form.control}
                   icon={<User size={16} />}
                   label="Full Name"
                   name="fullName"
                   placeholder="Enter your full name"
                 />
-                <InputField
+                <FormInputField
                   control={form.control}
                   icon={<Mail size={16} />}
                   label="Email"
                   name="email"
                   placeholder="Enter your email"
                 />
-                <InputField
+                <FormInputField
                   control={form.control}
                   icon={<Lock size={16} />}
                   label="Password"
@@ -87,7 +87,7 @@ export const SignUpForm = () => {
                   placeholder="Enter your password"
                   type="password"
                 />
-                <InputField
+                <FormInputField
                   control={form.control}
                   icon={<Lock size={16} />}
                   label="Confirm Password"

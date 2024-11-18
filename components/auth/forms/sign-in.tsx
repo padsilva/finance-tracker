@@ -1,6 +1,13 @@
 "use client";
 
+import { startTransition, useActionState } from "react";
+
+import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowRight, Loader2, Lock, LogIn, Mail } from "lucide-react";
+import Link from "next/link";
+import { useForm } from "react-hook-form";
+
+import { signin } from "@/app/(auth)/actions";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -10,15 +17,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { startTransition, useActionState } from "react";
-import { signin } from "@/app/(auth)/actions";
-import Link from "next/link";
-import { Form } from "@/components/ui/form";
-import { useForm } from "react-hook-form";
+import { Form, FormAlert, FormInputField } from "@/components/ui/form";
 import { signInSchema, SignInValues } from "@/utils/validation-schema";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { InputField } from "./ui/input-field";
-import { FormAlert } from "./ui/form-alert";
 
 export const SignInForm = () => {
   const form = useForm<SignInValues>({
@@ -58,14 +58,14 @@ export const SignInForm = () => {
             <div className="flex flex-col gap-6">
               <div className="grid w-full items-center gap-4">
                 <FormAlert error={state?.error} />
-                <InputField
+                <FormInputField
                   control={form.control}
                   icon={<Mail size={16} />}
                   label="Email"
                   name="email"
                   placeholder="Enter your email"
                 />
-                <InputField
+                <FormInputField
                   control={form.control}
                   icon={<Lock size={16} />}
                   label={

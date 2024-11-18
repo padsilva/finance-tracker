@@ -1,6 +1,13 @@
 "use client";
 
+import { startTransition, useActionState } from "react";
+
+import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowLeft, Loader2, Lock, Mail } from "lucide-react";
+import Link from "next/link";
+import { useForm } from "react-hook-form";
+
+import { forgotPassword } from "@/app/(auth)/actions";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -10,18 +17,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { startTransition, useActionState } from "react";
-import { forgotPassword } from "@/app/(auth)/actions";
-import Link from "next/link";
-import { Form } from "@/components/ui/form";
-import { useForm } from "react-hook-form";
+import { Form, FormAlert, FormInputField } from "@/components/ui/form";
 import {
   forgotPasswordSchema,
   ForgotPasswordValues,
 } from "@/utils/validation-schema";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { InputField } from "./ui/input-field";
-import { FormAlert } from "./ui/form-alert";
 
 export const ForgotPasswordForm = () => {
   const form = useForm<ForgotPasswordValues>({
@@ -60,7 +60,7 @@ export const ForgotPasswordForm = () => {
             <div className="flex flex-col gap-6">
               <div className="grid w-full items-center gap-4">
                 <FormAlert error={state?.error} success={state?.success} />
-                <InputField
+                <FormInputField
                   control={form.control}
                   icon={<Mail size={16} />}
                   label="Email"

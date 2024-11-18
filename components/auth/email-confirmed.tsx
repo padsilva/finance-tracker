@@ -1,5 +1,10 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
+import { CheckCircle2 } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -7,9 +12,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
-import { CheckCircle2 } from "lucide-react";
 
 export const EmailConfirmed = () => {
   const [countdown, setCountdown] = useState(5);

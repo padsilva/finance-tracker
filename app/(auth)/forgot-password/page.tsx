@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+
 import { ForgotPasswordForm } from "@/components/auth/forms/forgot-password";
 
 export default function ForgotPasswordPage() {

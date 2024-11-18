@@ -1,6 +1,13 @@
 "use client";
 
+import { startTransition, useActionState } from "react";
+
+import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowLeft, Loader2, Lock } from "lucide-react";
+import Link from "next/link";
+import { useForm } from "react-hook-form";
+
+import { resetPassword } from "@/app/(auth)/actions";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -10,18 +17,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { startTransition, useActionState } from "react";
-import { resetPassword } from "@/app/(auth)/actions";
-import Link from "next/link";
-import { Form } from "@/components/ui/form";
-import { useForm } from "react-hook-form";
+import { Form, FormAlert, FormInputField } from "@/components/ui/form";
 import {
   resetPasswordSchema,
   ResetPasswordValues,
 } from "@/utils/validation-schema";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { InputField } from "./ui/input-field";
-import { FormAlert } from "./ui/form-alert";
 
 export const ResetPasswordForm = () => {
   const form = useForm<ResetPasswordValues>({
@@ -58,7 +58,7 @@ export const ResetPasswordForm = () => {
             <div className="flex flex-col gap-6">
               <div className="grid w-full items-center gap-4">
                 <FormAlert error={state?.error} success={state?.success} />
-                <InputField
+                <FormInputField
                   control={form.control}
                   icon={<Lock size={16} />}
                   label="Password"
@@ -66,7 +66,7 @@ export const ResetPasswordForm = () => {
                   placeholder="Enter your password"
                   type="password"
                 />
-                <InputField
+                <FormInputField
                   control={form.control}
                   icon={<Lock size={16} />}
                   label="Confirm Password"
