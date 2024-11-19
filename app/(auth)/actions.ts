@@ -13,8 +13,13 @@ export async function signin(_prevState: PrevState, formData: FormData) {
 
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
+  const captchaToken = formData.get("captchaToken") as string;
 
-  const { error } = await supabase.auth.signInWithPassword({ email, password });
+  const { error } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+    options: { captchaToken },
+  });
 
   if (error) {
     return { error: error.message };
@@ -29,8 +34,13 @@ export async function signup(_prevState: PrevState, formData: FormData) {
 
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
+  const captchaToken = formData.get("captchaToken") as string;
 
-  const { error } = await supabase.auth.signUp({ email, password });
+  const { error } = await supabase.auth.signUp({
+    email,
+    password,
+    options: { captchaToken },
+  });
 
   if (error) {
     return { error: error.message };
@@ -47,8 +57,13 @@ export async function resendVerificationEmail(
   const supabase = await createClient();
 
   const email = formData.get("email") as string;
+  const captchaToken = formData.get("captchaToken") as string;
 
-  const { error } = await supabase.auth.resend({ type: "signup", email });
+  const { error } = await supabase.auth.resend({
+    type: "signup",
+    email,
+    options: { captchaToken },
+  });
 
   if (error) {
     return { error: error.message };
@@ -68,9 +83,11 @@ export async function forgotPassword(
   const hostname = headersList.get("X-Forwarded-Host");
 
   const email = formData.get("email") as string;
+  const captchaToken = formData.get("captchaToken") as string;
 
   const { error } = await supabase.auth.resetPasswordForEmail(email, {
     redirectTo: `${protocol}://${hostname}/reset-password`,
+    captchaToken,
   });
 
   if (error) {

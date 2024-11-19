@@ -1,8 +1,9 @@
 "use client";
 
-import { startTransition, useActionState } from "react";
+import { startTransition, useActionState, useState } from "react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Turnstile } from "@marsidev/react-turnstile";
 import { ArrowLeft, Loader2, Mail } from "lucide-react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
@@ -19,6 +20,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Form, FormAlert } from "@/components/ui/form";
+import { env } from "@/lib/env";
 import { useUserStore } from "@/stores/userStore";
 import { resendSchema, ResendValues } from "@/utils/validation-schema";
 
@@ -33,6 +35,7 @@ export const VerifySignUpForm = () => {
     resendVerificationEmail,
     null,
   );
+  const [captchaToken, setCaptchaToken] = useState("");
 
   const onSubmit = (data: ResendValues) => {
     startTransition(() => {
@@ -40,6 +43,7 @@ export const VerifySignUpForm = () => {
       Object.entries(data).forEach(([key, value]) =>
         formData.append(key, value),
       );
+      formData.append("captchaToken", captchaToken);
       formAction(formData);
     });
   };
@@ -64,6 +68,12 @@ export const VerifySignUpForm = () => {
             <div className="flex flex-col gap-6">
               <FormAlert error={state?.error} success={state?.success} />
               <ConfirmationListener />
+              <div className="text-center">
+                <Turnstile
+                  siteKey={env.NEXT_PUBLIC_CAPTCHA_SITE_KEY}
+                  onSuccess={setCaptchaToken}
+                />
+              </div>
               <Button className="w-full" disabled={isPending} type="submit">
                 {isPending ? (
                   <>
