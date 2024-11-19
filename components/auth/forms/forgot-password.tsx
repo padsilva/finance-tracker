@@ -1,8 +1,9 @@
 "use client";
 
-import { startTransition, useActionState } from "react";
+import { startTransition, useActionState, useState } from "react";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Turnstile } from "@marsidev/react-turnstile";
 import { ArrowLeft, Loader2, Lock, Mail } from "lucide-react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
@@ -18,6 +19,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Form, FormAlert, FormInputField } from "@/components/ui/form";
+import { env } from "@/lib/env";
 import {
   forgotPasswordSchema,
   ForgotPasswordValues,
@@ -30,6 +32,7 @@ export const ForgotPasswordForm = () => {
   });
 
   const [state, formAction, isPending] = useActionState(forgotPassword, null);
+  const [captchaToken, setCaptchaToken] = useState("");
 
   const onSubmit = (data: ForgotPasswordValues) => {
     startTransition(() => {
@@ -37,6 +40,7 @@ export const ForgotPasswordForm = () => {
       Object.entries(data).forEach(([key, value]) =>
         formData.append(key, value),
       );
+      formData.append("captchaToken", captchaToken);
       formAction(formData);
     });
   };
@@ -66,6 +70,12 @@ export const ForgotPasswordForm = () => {
                   label="Email"
                   name="email"
                   placeholder="Enter your email"
+                />
+              </div>
+              <div className="text-center">
+                <Turnstile
+                  siteKey={env.NEXT_PUBLIC_CAPTCHA_SITE_KEY}
+                  onSuccess={setCaptchaToken}
                 />
               </div>
               <Button className="w-full" disabled={isPending} type="submit">

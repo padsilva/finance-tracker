@@ -1,34 +1,31 @@
-type EnvVariable = {
-  name: string;
-  isRequired: boolean;
-  defaultValue?: string;
-};
+import { z } from "zod";
 
-const envVariables: EnvVariable[] = [
-  { name: "NEXT_PUBLIC_SUPABASE_URL", isRequired: true },
-  { name: "NEXT_PUBLIC_SUPABASE_ANON_KEY", isRequired: true },
-];
+const envSchema = z.object({
+  NEXT_PUBLIC_SUPABASE_URL: z.string().url(),
+  NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string().min(1),
+  NEXT_PUBLIC_CAPTCHA_SITE_KEY: z.string().min(1),
+});
 
-type EnvConfig = {
-  [key: string]: string;
-};
+const validateEnv = () => {
+  const publicEnv = {
+    NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
+    NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+    NEXT_PUBLIC_CAPTCHA_SITE_KEY: process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY,
+  };
 
-function validateEnv(): EnvConfig {
-  const env: EnvConfig = {};
-
-  for (const variable of envVariables) {
-    const value = process.env[variable.name];
-
-    if (!value && variable.isRequired) {
+  try {
+    const parsed = envSchema.parse(publicEnv);
+    return parsed;
+  } catch (error) {
+    if (error instanceof Error) {
       throw new Error(
-        `Missing required environment variable: ${variable.name}`,
+        `Invalid public environment variables: ${error.message}.
+        Make sure you have provided all required environment variables.`,
       );
     }
 
-    env[variable.name] = value ?? variable.defaultValue ?? "";
+    throw error;
   }
-
-  return env;
-}
+};
 
 export const env = validateEnv();
