@@ -22,6 +22,11 @@ export async function signin(_prevState: PrevState, formData: FormData) {
   });
 
   if (error) {
+    if (error.code === "email_not_confirmed") {
+      await resendVerificationEmail(_prevState, formData);
+      revalidatePath("/", "layout");
+      redirect("/verify-signup");
+    }
     return { error: error.message };
   }
 
