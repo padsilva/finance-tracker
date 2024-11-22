@@ -68,10 +68,17 @@ export const VerifySignUpForm = () => {
             <div className="flex flex-col gap-6">
               <FormAlert error={state?.error} success={state?.success} />
               <ConfirmationListener />
-              <div className="text-center">
+              <div className="flex min-h-[140px] justify-center sm:min-h-[72px]">
                 <Turnstile
-                  siteKey={env.NEXT_PUBLIC_CAPTCHA_SITE_KEY}
+                  className={`hidden sm:block`}
                   onSuccess={setCaptchaToken}
+                  siteKey={env.NEXT_PUBLIC_CAPTCHA_SITE_KEY}
+                />
+                <Turnstile
+                  className={`block sm:hidden`}
+                  onSuccess={setCaptchaToken}
+                  options={{ size: "compact" }}
+                  siteKey={env.NEXT_PUBLIC_CAPTCHA_SITE_KEY}
                 />
               </div>
               <Button className="w-full" disabled={isPending} type="submit">
