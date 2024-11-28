@@ -75,8 +75,7 @@ The application will be available at [http://localhost:3000](http://localhost:30
 - [Supabase](https://supabase.com/) - Backend as a Service
 - [TypeScript](https://www.typescriptlang.org/) - Type safety
 - [Tailwind CSS](https://tailwindcss.com/) - Styling
-- [Radix UI](https://www.radix-ui.com/) - Headless UI components
-- [React Hook Form](https://react-hook-form.com/) - Form handling
+- [shadcn/ui](https://ui.shadcn.com/) - Re-usable UI components
 - [Zod](https://zod.dev/) - Schema validation
 - [Zustand](https://zustand-demo.pmnd.rs/) - State management
 - [Cloudflare Turnstile](https://www.cloudflare.com/products/turnstile/) - Bot protection
