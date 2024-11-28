@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💰 Finance Tracker
 
-## Getting Started
+A modern web application for tracking personal finances built with Next.js and Supabase.
 
-First, run the development server:
+## ✨ Features
 
+- Personal finance tracking
+- User authentication with Supabase
+- Dark mode support
+- Modern and responsive UI
+- Form validation with Zod
+- Cloudflare Turnstile protection
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (Latest LTS version recommended)
+- npm or yarn package manager
+- Supabase account
+- Cloudflare Turnstile account
+
+### Environment Variables
+
+Create a `.env.local` file in the root directory with the following variables:
+
+```bash
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+NEXT_PUBLIC_TURNSTILE_SITE_KEY=your_turnstile_site_key
+TURNSTILE_SECRET_KEY=your_turnstile_secret_key
+```
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/padsilva/finance-tracker.git
+```
+
+2. Navigate to the project directory:
+```bash
+cd finance-tracker
+```
+
+3. Install dependencies:
+```bash
+npm install
+# or
+yarn
+```
+
+4. Start the development server:
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The application will be available at [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Commands
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `dev`: runs development server with Turbopack
+- `build`: creates production build
+- `start`: starts production server
+- `lint`: runs ESLint
+- `format`: formats code with Prettier
+- `type-check`: runs TypeScript type checking
+- `prepare`: sets up Husky git hooks
 
-## Learn More
+## 🧰 Technologies
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js](https://nextjs.org/) - React framework with App Router
+- [Supabase](https://supabase.com/) - Backend as a Service
+- [TypeScript](https://www.typescriptlang.org/) - Type safety
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [shadcn/ui](https://ui.shadcn.com/) - Re-usable UI components
+- [Zod](https://zod.dev/) - Schema validation
+- [Zustand](https://zustand-demo.pmnd.rs/) - State management
+- [Cloudflare Turnstile](https://www.cloudflare.com/products/turnstile/) - Bot protection
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🧪 Development Tools
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- [ESLint](https://eslint.org/) - Linting
+- [Prettier](https://prettier.io/) - Code formatting
+- [Husky](https://typicode.github.io/husky/) - Git hooks
+- [Commitlint](https://commitlint.js.org/) - Commit message linting
+- [lint-staged](https://github.com/okonet/lint-staged) - Pre-commit linting
 
-## Deploy on Vercel
+## 👷 Author
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+[@padsilva](https://www.github.com/padsilva)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📬 Feedback
+
+If you have any feedback, please reach out to me at pauloalexandreduartesilva@gmail.com
