@@ -50,7 +50,7 @@ export const SignInForm = () => {
       <CardHeader className="text-center">
         <div className="flex justify-center">
           <div className="rounded-full bg-blue-100 p-5">
-            <LogIn className="h-8 w-8 text-primary" />
+            <LogIn className="h-8 w-8 text-primary" data-testid="login-icon" />
           </div>
         </div>
         <CardTitle className="text-2xl">Welcome Back</CardTitle>
@@ -64,14 +64,14 @@ export const SignInForm = () => {
                 <FormAlert error={state?.error} />
                 <FormInputField
                   control={form.control}
-                  icon={<Mail size={16} />}
+                  icon={<Mail size={16} data-testid="mail-icon" />}
                   label="Email"
                   name="email"
                   placeholder="Enter your email"
                 />
                 <FormInputField
                   control={form.control}
-                  icon={<Lock size={16} />}
+                  icon={<Lock size={16} data-testid="lock-icon" />}
                   label={
                     <div className="flex items-center justify-between">
                       Password
@@ -101,12 +101,15 @@ export const SignInForm = () => {
               <Button className="w-full" disabled={isPending} type="submit">
                 {isPending ? (
                   <>
-                    <Loader2 className="h-4 w-4 animate-spin" />
+                    <Loader2
+                      className="h-4 w-4 animate-spin"
+                      data-testid="loader-icon"
+                    />
                     Signing In...
                   </>
                 ) : (
                   <>
-                    Sign In <ArrowRight />
+                    Sign In <ArrowRight data-testid="arrow-right-icon" />
                   </>
                 )}
               </Button>

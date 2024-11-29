@@ -53,7 +53,7 @@ export const VerifySignUpForm = () => {
       <CardHeader className="text-center">
         <div className="flex justify-center">
           <div className="rounded-full bg-blue-100 p-5">
-            <Mail className="h-8 w-8 text-primary" />
+            <Mail className="h-8 w-8 text-primary" data-testid="mail-icon" />
           </div>
         </div>
         <CardTitle className="text-2xl">Email Confirmation</CardTitle>
@@ -84,7 +84,10 @@ export const VerifySignUpForm = () => {
               <Button className="w-full" disabled={isPending} type="submit">
                 {isPending ? (
                   <>
-                    <Loader2 className="h-4 w-4 animate-spin" />
+                    <Loader2
+                      className="h-4 w-4 animate-spin"
+                      data-testid="loader-icon"
+                    />
                     Resending...
                   </>
                 ) : (
@@ -98,7 +101,7 @@ export const VerifySignUpForm = () => {
       <CardFooter className="flex flex-col gap-3">
         <Button asChild className="w-full" variant="outline">
           <Link href="/signin">
-            <ArrowLeft /> Back to Sign In
+            <ArrowLeft data-testid="arrow-left-icon" /> Back to Sign In
           </Link>
         </Button>
         <div className="text-center">

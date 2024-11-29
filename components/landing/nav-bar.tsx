@@ -31,7 +31,7 @@ export const NavBar: React.FC = () => {
         </div>
         {path !== "/email-confirmed" ? (
           <>
-            <div className="hidden gap-4 md:flex">
+            <div className="hidden gap-4 md:flex" data-testid="desktop-menu">
               <Button asChild className="text-muted-foreground" variant="ghost">
                 <Link href="/signin">Sign In</Link>
               </Button>
@@ -48,7 +48,11 @@ export const NavBar: React.FC = () => {
               onClick={toggleMobileMenu}
               aria-label="Toggle menu"
             >
-              {isMobileMenuOpen ? <X /> : <Menu />}
+              {isMobileMenuOpen ? (
+                <X data-testid="close-icon" />
+              ) : (
+                <Menu data-testid="menu-icon" />
+              )}
             </Button>
           </>
         ) : null}
@@ -56,19 +60,20 @@ export const NavBar: React.FC = () => {
 
       {/* Mobile Navigation */}
       {isMobileMenuOpen && path !== "/email-confirmed" && (
-        <div className="border-t dark:border-background md:hidden">
-          <div className="flex flex-col space-y-2 p-4">
-            <Button
-              asChild
-              className="w-full text-muted-foreground"
-              variant="ghost"
-            >
-              <Link href="/signin">Sign In</Link>
-            </Button>
-            <Button asChild className="w-full">
-              <Link href="/signup">Get Started</Link>
-            </Button>
-          </div>
+        <div
+          className="flex flex-col space-y-2 border-t p-4 dark:border-background md:hidden"
+          data-testid="mobile-menu"
+        >
+          <Button
+            asChild
+            className="w-full text-muted-foreground"
+            variant="ghost"
+          >
+            <Link href="/signin">Sign In</Link>
+          </Button>
+          <Button asChild className="w-full">
+            <Link href="/signup">Get Started</Link>
+          </Button>
         </div>
       )}
     </nav>

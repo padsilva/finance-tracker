@@ -1,6 +1,6 @@
 import { BarChart, PieChart, Wallet, Bell } from "lucide-react";
 
-const featureList = [
+export const featureList = [
   {
     icon: BarChart,
     title: "Expense Tracking",
@@ -33,11 +33,14 @@ export const HeroSection = () => (
       Track expenses, manage budgets, and achieve your financial goals with our
       intuitive platform.
     </p>
-    <div className="grid grid-cols-2 gap-6">
+    <div className="grid grid-cols-2 gap-6" data-testid="grid-container">
       {featureList.map(({ icon: FeatureIcon, title, description }) => (
         <div key={title} className="flex items-start gap-3">
           <div className="mt-1">
-            <FeatureIcon className="h-5 w-5 text-primary" />
+            <FeatureIcon
+              className="h-5 w-5 text-primary"
+              data-testid={`icon-${FeatureIcon.displayName}`}
+            />
           </div>
           <div>
             <h3 className="font-medium">{title}</h3>
