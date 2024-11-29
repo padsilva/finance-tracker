@@ -32,7 +32,7 @@ const mockUser = {
   name: "Test User",
 };
 const mockSetUser = jest.fn();
-jest.mock("@/stores/userStore", () => ({
+jest.mock("@/stores/user-store", () => ({
   useUserStore: jest.fn((selector) =>
     selector({ user: mockUser, setUser: mockSetUser }),
   ),

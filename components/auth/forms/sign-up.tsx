@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/card";
 import { Form, FormAlert, FormInputField } from "@/components/ui/form";
 import { env } from "@/lib/env";
-import { useUserStore } from "@/stores/userStore";
+import { useUserStore } from "@/stores/user-store";
 import { signUpSchema, SignUpValues } from "@/utils/validation-schema";
 
 export const SignUpForm = () => {

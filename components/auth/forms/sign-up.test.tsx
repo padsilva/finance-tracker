@@ -26,7 +26,7 @@ jest.mock("@/app/(auth)/actions", () => ({
 }));
 
 const mockSetUser = jest.fn();
-jest.mock("@/stores/userStore", () => ({
+jest.mock("@/stores/user-store", () => ({
   useUserStore: jest.fn((selector) => selector({ setUser: mockSetUser })),
 }));
 

@@ -21,7 +21,7 @@ import {
 } from "@/components/ui/card";
 import { Form, FormAlert } from "@/components/ui/form";
 import { env } from "@/lib/env";
-import { useUserStore } from "@/stores/userStore";
+import { useUserStore } from "@/stores/user-store";
 import { resendSchema, ResendValues } from "@/utils/validation-schema";
 
 export const VerifySignUpForm = () => {
