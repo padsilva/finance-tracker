@@ -37,15 +37,24 @@ export const ConfirmationListener = () => {
   }, [router, supabase]);
 
   return (
-    <p className="flex items-center justify-center gap-2 text-lg">
+    <p
+      className="flex items-center justify-center gap-2 text-lg"
+      data-testid="confirmation-listener"
+    >
       {isConfirmed ? (
         <>
-          <CheckCircle className="h-5 w-5 text-primary" />
+          <CheckCircle
+            className="h-5 w-5 text-primary"
+            data-testid="check-circle-icon"
+          />
           Email confirmed! Redirecting to dashboard...
         </>
       ) : (
         <>
-          <RefreshCw className="h-5 w-5 animate-spin text-primary" />
+          <RefreshCw
+            className="h-5 w-5 animate-spin text-primary"
+            data-testid="refresh-icon"
+          />
           Waiting for email confirmation...
         </>
       )}

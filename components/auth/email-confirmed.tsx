@@ -37,8 +37,14 @@ export const EmailConfirmed = () => {
     <Card className="mx-auto max-w-md">
       <CardHeader className="text-center">
         <div className="flex justify-center">
-          <div className="rounded-full bg-blue-100 p-5">
-            <CheckCircle2 className="h-8 w-8 text-primary" />
+          <div
+            className="rounded-full bg-blue-100 p-5"
+            data-testid="icon-container"
+          >
+            <CheckCircle2
+              className="h-8 w-8 text-primary"
+              data-testid="check-circle-icon"
+            />
           </div>
         </div>
         <CardTitle className="text-2xl">Email Confirmed!</CardTitle>

@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/card";
 import { Form, FormAlert, FormInputField } from "@/components/ui/form";
 import { env } from "@/lib/env";
-import { useUserStore } from "@/stores/userStore";
+import { useUserStore } from "@/stores/user-store";
 import { signUpSchema, SignUpValues } from "@/utils/validation-schema";
 
 export const SignUpForm = () => {
@@ -57,7 +57,10 @@ export const SignUpForm = () => {
       <CardHeader className="text-center">
         <div className="flex justify-center">
           <div className="rounded-full bg-blue-100 p-5">
-            <UserPlus className="h-8 w-8 text-primary" />
+            <UserPlus
+              className="h-8 w-8 text-primary"
+              data-testid="user-plus-icon"
+            />
           </div>
         </div>
         <CardTitle className="text-2xl">Create Account</CardTitle>
@@ -71,21 +74,21 @@ export const SignUpForm = () => {
                 <FormAlert error={state?.error} />
                 <FormInputField
                   control={form.control}
-                  icon={<User size={16} />}
+                  icon={<User size={16} data-testid="user-icon" />}
                   label="Full Name"
                   name="fullName"
                   placeholder="Enter your full name"
                 />
                 <FormInputField
                   control={form.control}
-                  icon={<Mail size={16} />}
+                  icon={<Mail size={16} data-testid="mail-icon" />}
                   label="Email"
                   name="email"
                   placeholder="Enter your email"
                 />
                 <FormInputField
                   control={form.control}
-                  icon={<Lock size={16} />}
+                  icon={<Lock size={16} data-testid="lock-icon" />}
                   label="Password"
                   name="password"
                   placeholder="Enter your password"
@@ -93,7 +96,7 @@ export const SignUpForm = () => {
                 />
                 <FormInputField
                   control={form.control}
-                  icon={<Lock size={16} />}
+                  icon={<Lock size={16} data-testid="lock-icon" />}
                   label="Confirm Password"
                   name="confirmPassword"
                   placeholder="Confirm your password"
@@ -116,12 +119,15 @@ export const SignUpForm = () => {
               <Button className="w-full" disabled={isPending} type="submit">
                 {isPending ? (
                   <>
-                    <Loader2 className="h-4 w-4 animate-spin" />
+                    <Loader2
+                      className="h-4 w-4 animate-spin"
+                      data-testid="loader-icon"
+                    />
                     Signing Up...
                   </>
                 ) : (
                   <>
-                    Create Account <ArrowRight />
+                    Create Account <ArrowRight data-testid="arrow-right-icon" />
                   </>
                 )}
               </Button>
