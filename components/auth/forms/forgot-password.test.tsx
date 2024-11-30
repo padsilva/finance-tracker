@@ -6,46 +6,21 @@ import {
   act,
 } from "@testing-library/react";
 
+import {
+  mockFormAction,
+  resetMocks,
+  setError,
+  setLoadingState,
+  setSuccess,
+} from "@/utils/test-utils";
+
 import { ForgotPasswordForm } from "./forgot-password";
-
-jest.mock("@marsidev/react-turnstile", () => ({
-  Turnstile: ({ onSuccess }: { onSuccess: (token: string) => void }) => (
-    <div data-testid="captcha">
-      <button type="button" onClick={() => onSuccess("mock-captcha-token")}>
-        Verify Captcha
-      </button>
-    </div>
-  ),
-}));
-
-const mockFormAction = jest.fn();
-const mockState: {
-  error: string | null;
-  success: string | null;
-} = { error: null, success: null };
-let mockIsPending = false;
-jest.mock("react", () => ({
-  ...jest.requireActual("react"),
-  startTransition: jest.fn((callback) => callback()),
-  useActionState: jest.fn(() => [mockState, mockFormAction, mockIsPending]),
-}));
-
-jest.mock("@/app/(auth)/actions", () => ({
-  forgotPassword: jest.fn(),
-}));
-
-jest.mock("@/lib/env", () => ({
-  env: { NEXT_PUBLIC_CAPTCHA_SITE_KEY: "mock-site-key" },
-}));
 
 describe("ForgotPasswordForm", () => {
   const defaultEmail = "test@example.com";
 
   beforeEach(() => {
-    mockFormAction.mockClear();
-    mockIsPending = false;
-    mockState.error = null;
-    mockState.success = null;
+    resetMocks();
   });
 
   it("should render initial form state correctly", () => {
@@ -109,7 +84,7 @@ describe("ForgotPasswordForm", () => {
   });
 
   it("should show loading state during submission", () => {
-    mockIsPending = true;
+    setLoadingState(true);
 
     render(<ForgotPasswordForm />);
 
@@ -119,16 +94,14 @@ describe("ForgotPasswordForm", () => {
   });
 
   it("should display error messages", () => {
-    mockState.error = "Email not found";
-    mockState.success = null;
+    setError("Email not found");
 
     render(<ForgotPasswordForm />);
     expect(screen.getByText("Email not found")).toBeInTheDocument();
   });
 
   it("should display success messages", () => {
-    mockState.error = null;
-    mockState.success = "Reset instructions sent";
+    setSuccess("Reset instructions sent");
 
     render(<ForgotPasswordForm />);
     expect(screen.getByText("Reset instructions sent")).toBeInTheDocument();

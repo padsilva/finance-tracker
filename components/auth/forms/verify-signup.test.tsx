@@ -1,5 +1,13 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 
+import {
+  mockFormAction,
+  resetMocks,
+  setError,
+  setLoadingState,
+  setSuccess,
+} from "@/utils/test-utils";
+
 import { VerifySignUpForm } from "./verify-signup";
 
 jest.mock("next/navigation", () => ({
@@ -13,20 +21,6 @@ jest.mock("next/navigation", () => ({
   })),
 }));
 
-jest.mock("@marsidev/react-turnstile", () => ({
-  Turnstile: ({ onSuccess }: { onSuccess: (token: string) => void }) => (
-    <div data-testid="captcha">
-      <button type="button" onClick={() => onSuccess("mock-captcha-token")}>
-        Verify Captcha
-      </button>
-    </div>
-  ),
-}));
-
-jest.mock("@/app/(auth)/actions", () => ({
-  resendVerificationEmail: jest.fn(),
-}));
-
 const mockUser = {
   email: "test@example.com",
   name: "Test User",
@@ -36,22 +30,6 @@ jest.mock("@/stores/user-store", () => ({
   useUserStore: jest.fn((selector) =>
     selector({ user: mockUser, setUser: mockSetUser }),
   ),
-}));
-
-const mockFormAction = jest.fn();
-const mockState: {
-  error: string | null;
-  success: string | null;
-} = { error: null, success: null };
-let mockIsPending = false;
-jest.mock("react", () => ({
-  ...jest.requireActual("react"),
-  startTransition: jest.fn((callback) => callback()),
-  useActionState: jest.fn(() => [mockState, mockFormAction, mockIsPending]),
-}));
-
-jest.mock("@/lib/env", () => ({
-  env: { NEXT_PUBLIC_CAPTCHA_SITE_KEY: "mock-site-key" },
 }));
 
 const mockSupabase = {
@@ -77,11 +55,8 @@ jest.mock("@/lib/supabase/client", () => ({
 
 describe("VerifySignUpForm", () => {
   beforeEach(() => {
-    mockFormAction.mockClear();
+    resetMocks();
     mockSetUser.mockClear();
-    mockIsPending = false;
-    mockState.error = null;
-    mockState.success = null;
   });
 
   it("should render initial form state correctly", () => {
@@ -123,7 +98,7 @@ describe("VerifySignUpForm", () => {
   });
 
   it("should show loading state during submission", () => {
-    mockIsPending = true;
+    setLoadingState(true);
 
     render(<VerifySignUpForm />);
 
@@ -133,8 +108,7 @@ describe("VerifySignUpForm", () => {
   });
 
   it("should display error messages", () => {
-    mockState.error = "Failed to send confirmation email";
-    mockState.success = null;
+    setError("Failed to send confirmation email");
 
     render(<VerifySignUpForm />);
 
@@ -144,8 +118,7 @@ describe("VerifySignUpForm", () => {
   });
 
   it("should display success messages", () => {
-    mockState.error = null;
-    mockState.success = "Confirmation email sent successfully";
+    setSuccess("Confirmation email sent successfully");
 
     render(<VerifySignUpForm />);
 

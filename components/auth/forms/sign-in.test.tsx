@@ -6,40 +6,18 @@ import {
   waitFor,
 } from "@testing-library/react";
 
+import {
+  mockFormAction,
+  resetMocks,
+  setError,
+  setLoadingState,
+} from "@/utils/test-utils";
+
 import { SignInForm } from "./sign-in";
-
-jest.mock("@marsidev/react-turnstile", () => ({
-  Turnstile: ({ onSuccess }: { onSuccess: (token: string) => void }) => (
-    <div data-testid="captcha">
-      <button type="button" onClick={() => onSuccess("mock-captcha-token")}>
-        Verify Captcha
-      </button>
-    </div>
-  ),
-}));
-
-const mockFormAction = jest.fn();
-const mockState: { error: string | null } = { error: null };
-let mockIsPending = false;
-jest.mock("react", () => ({
-  ...jest.requireActual("react"),
-  startTransition: jest.fn((callback) => callback()),
-  useActionState: jest.fn(() => [mockState, mockFormAction, mockIsPending]),
-}));
-
-jest.mock("@/app/(auth)/actions", () => ({
-  signin: jest.fn(),
-}));
-
-jest.mock("@/lib/env", () => ({
-  env: { NEXT_PUBLIC_CAPTCHA_SITE_KEY: "mock-site-key" },
-}));
 
 describe("SignInForm", () => {
   beforeEach(() => {
-    mockFormAction.mockClear();
-    mockIsPending = false;
-    mockState.error = null;
+    resetMocks();
   });
 
   it("should render initial form state correctly", () => {
@@ -114,7 +92,7 @@ describe("SignInForm", () => {
   });
 
   it("should show loading state during submission", () => {
-    mockIsPending = true;
+    setLoadingState(true);
 
     render(<SignInForm />);
 
@@ -124,7 +102,7 @@ describe("SignInForm", () => {
   });
 
   it("should display error messages", () => {
-    mockState.error = "Invalid credentials";
+    setError("Invalid credentials");
 
     render(<SignInForm />);
 

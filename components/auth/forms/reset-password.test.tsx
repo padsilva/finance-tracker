@@ -6,39 +6,19 @@ import {
   act,
 } from "@testing-library/react";
 
+import {
+  mockFormAction,
+  resetMocks,
+  setError,
+  setLoadingState,
+  setSuccess,
+} from "@/utils/test-utils";
+
 import { ResetPasswordForm } from "./reset-password";
-
-jest.mock("@marsidev/react-turnstile", () => ({
-  Turnstile: ({ onSuccess }: { onSuccess: (token: string) => void }) => (
-    <div data-testid="captcha">
-      <button type="button" onClick={() => onSuccess("mock-captcha-token")}>
-        Verify Captcha
-      </button>
-    </div>
-  ),
-}));
-
-const mockFormAction = jest.fn();
-const mockState: {
-  error: string | null;
-  success: string | null;
-} = { error: null, success: null };
-let mockIsPending = false;
-jest.mock("react", () => ({
-  ...jest.requireActual("react"),
-  startTransition: jest.fn((callback) => callback()),
-  useActionState: jest.fn(() => [mockState, mockFormAction, mockIsPending]),
-}));
-
-jest.mock("@/app/(auth)/actions", () => ({
-  resetPassword: jest.fn(),
-}));
 
 describe("ResetPasswordForm", () => {
   beforeEach(() => {
-    mockFormAction.mockClear();
-    mockIsPending = false;
-    mockState.error = null;
+    resetMocks();
   });
 
   it("should render initial form state correctly", () => {
@@ -135,7 +115,7 @@ describe("ResetPasswordForm", () => {
   });
 
   it("should show loading state during submission", () => {
-    mockIsPending = true;
+    setLoadingState(true);
 
     render(<ResetPasswordForm />);
 
@@ -145,16 +125,14 @@ describe("ResetPasswordForm", () => {
   });
 
   it("should display error messages", () => {
-    mockState.error = "Reset link has expired";
-    mockState.success = null;
+    setError("Reset link has expired");
 
     render(<ResetPasswordForm />);
     expect(screen.getByText("Reset link has expired")).toBeInTheDocument();
   });
 
   it("should display success messages", () => {
-    mockState.error = null;
-    mockState.success = "Password changed successfully";
+    setSuccess("Password changed successfully");
 
     render(<ResetPasswordForm />);
     expect(

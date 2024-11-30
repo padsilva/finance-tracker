@@ -1,45 +1,23 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 
+import {
+  mockFormAction,
+  resetMocks,
+  setError,
+  setLoadingState,
+} from "@/utils/test-utils";
+
 import { SignUpForm } from "./sign-up";
-
-jest.mock("@marsidev/react-turnstile", () => ({
-  Turnstile: ({ onSuccess }: { onSuccess: (token: string) => void }) => (
-    <div data-testid="captcha">
-      <button type="button" onClick={() => onSuccess("mock-captcha-token")}>
-        Verify Captcha
-      </button>
-    </div>
-  ),
-}));
-
-const mockFormAction = jest.fn();
-const mockState: { error: string | null } = { error: null };
-let mockIsPending = false;
-jest.mock("react", () => ({
-  ...jest.requireActual("react"),
-  startTransition: jest.fn((callback) => callback()),
-  useActionState: jest.fn(() => [mockState, mockFormAction, mockIsPending]),
-}));
-
-jest.mock("@/app/(auth)/actions", () => ({
-  signup: jest.fn(),
-}));
 
 const mockSetUser = jest.fn();
 jest.mock("@/stores/user-store", () => ({
   useUserStore: jest.fn((selector) => selector({ setUser: mockSetUser })),
 }));
 
-jest.mock("@/lib/env", () => ({
-  env: { NEXT_PUBLIC_CAPTCHA_SITE_KEY: "mock-site-key" },
-}));
-
 describe("SignUpForm", () => {
   beforeEach(() => {
-    mockFormAction.mockClear();
+    resetMocks();
     mockSetUser.mockClear();
-    mockIsPending = false;
-    mockState.error = null;
   });
 
   it("should render initial form state correctly", () => {
@@ -142,7 +120,7 @@ describe("SignUpForm", () => {
   });
 
   it("should show loading state during submission", () => {
-    mockIsPending = true;
+    setLoadingState(true);
 
     render(<SignUpForm />);
 
@@ -152,7 +130,7 @@ describe("SignUpForm", () => {
   });
 
   it("should display error messages", () => {
-    mockState.error = "Email already exists";
+    setError("Email already exists");
 
     render(<SignUpForm />);
 
