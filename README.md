@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/gh/padsilva/finance-tracker/branch/main/graph/badge.svg?token=JTXXAHCZPB)](https://codecov.io/gh/padsilva/finance-tracker)
+
 # 💰 Finance Tracker
 
 A modern web application for tracking personal finances built with Next.js and Supabase.
