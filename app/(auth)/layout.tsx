@@ -1,6 +1,6 @@
-import { Footer } from "@/components/landing/footer";
 import { HeroSection } from "@/components/landing/hero-section";
 import { NavBar } from "@/components/landing/nav-bar";
+import { Footer } from "@/components/shared/footer";
 
 export default function AuthLayout({
   children,
