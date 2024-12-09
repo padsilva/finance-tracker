@@ -1,0 +1,150 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown Menu should render DropdownMenuShortcut with default and custom classes 1`] = `
+<div>
+  <div>
+    <span
+      class="ml-auto text-xs tracking-widest opacity-60"
+    >
+      ⌘K
+    </span>
+    <span
+      class="ml-auto text-xs tracking-widest opacity-60 custom-shortcut"
+    >
+      ⌘S
+    </span>
+    <span
+      aria-label="Save"
+      class="ml-auto text-xs tracking-widest opacity-60"
+      data-testid="shortcut"
+    >
+      ⌘S
+    </span>
+    <span
+      class="ml-auto text-xs tracking-widest opacity-60"
+    >
+      <span>
+        ⌘
+      </span>
+      <span>
+        S
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Dropdown Menu should render basic dropdown 1`] = `
+<div>
+  <button
+    aria-expanded="false"
+    aria-haspopup="menu"
+    data-state="closed"
+    id="radix-:r0:"
+    type="button"
+  >
+    Open Menu
+  </button>
+</div>
+`;
+
+exports[`Dropdown Menu should render disabled states 1`] = `
+<div>
+  <button
+    aria-expanded="false"
+    aria-haspopup="menu"
+    data-disabled=""
+    data-state="closed"
+    disabled=""
+    id="radix-:rc:"
+    type="button"
+  >
+    Open Menu
+  </button>
+</div>
+`;
+
+exports[`Dropdown Menu should render dropdown with all item types 1`] = `
+<div>
+  <button
+    aria-expanded="false"
+    aria-haspopup="menu"
+    data-state="closed"
+    id="radix-:r2:"
+    type="button"
+  >
+    Open Menu
+  </button>
+</div>
+`;
+
+exports[`Dropdown Menu should render nested dropdown with sub menu 1`] = `
+<div>
+  <button
+    aria-expanded="false"
+    aria-haspopup="menu"
+    data-state="closed"
+    id="radix-:r4:"
+    type="button"
+  >
+    Open Menu
+  </button>
+</div>
+`;
+
+exports[`Dropdown Menu should render with custom classes 1`] = `
+<div>
+  <button
+    aria-expanded="false"
+    aria-haspopup="menu"
+    class="custom-trigger"
+    data-state="closed"
+    id="radix-:ra:"
+    type="button"
+  >
+    Open Menu
+  </button>
+</div>
+`;
+
+exports[`Dropdown Menu should render with groups 1`] = `
+<div>
+  <button
+    aria-expanded="false"
+    aria-haspopup="menu"
+    data-state="closed"
+    id="radix-:r6:"
+    type="button"
+  >
+    Open Menu
+  </button>
+</div>
+`;
+
+exports[`Dropdown Menu should render with inset items 1`] = `
+<div>
+  <button
+    aria-expanded="false"
+    aria-haspopup="menu"
+    data-state="closed"
+    id="radix-:r8:"
+    type="button"
+  >
+    Open Menu
+  </button>
+</div>
+`;
+
+exports[`Dropdown Menu should render with portal 1`] = `
+<div>
+  <button
+    aria-expanded="false"
+    aria-haspopup="menu"
+    data-state="closed"
+    id="radix-:re:"
+    type="button"
+  >
+    Open Menu
+  </button>
+</div>
+`;

@@ -2,6 +2,7 @@ import * as React from "react";
 
 import { cva, type VariantProps } from "class-variance-authority";
 
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const alertVariants = cva(
@@ -59,4 +60,16 @@ const AlertDescription = React.forwardRef<
 ));
 AlertDescription.displayName = "AlertDescription";
 
-export { Alert, AlertTitle, AlertDescription };
+const AlertButton = React.forwardRef<
+  HTMLButtonElement,
+  React.HTMLAttributes<HTMLButtonElement>
+>(({ children, ...props }, ref) => (
+  <div className="mt-4 flex justify-center">
+    <Button ref={ref} variant="destructive" {...props}>
+      {children}
+    </Button>
+  </div>
+));
+AlertButton.displayName = "AlertButton";
+
+export { Alert, AlertTitle, AlertDescription, AlertButton };
