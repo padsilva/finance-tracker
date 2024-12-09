@@ -20,11 +20,9 @@ import {
 } from "@/components/ui/card";
 import { Form, FormAlert, FormInputField } from "@/components/ui/form";
 import { env } from "@/lib/env";
-import { useUserStore } from "@/stores/user-store";
 import { signUpSchema, SignUpValues } from "@/utils/validation-schema";
 
 export const SignUpForm = () => {
-  const setUser = useUserStore((state) => state.setUser);
   const form = useForm<SignUpValues>({
     resolver: zodResolver(signUpSchema),
     defaultValues: {
@@ -39,9 +37,6 @@ export const SignUpForm = () => {
   const [captchaToken, setCaptchaToken] = useState("");
 
   const onSubmit = (data: SignUpValues) => {
-    const { email, fullName: name } = data;
-    setUser({ email, name });
-
     startTransition(() => {
       const formData = new FormData();
       Object.entries(data).forEach(([key, value]) =>
