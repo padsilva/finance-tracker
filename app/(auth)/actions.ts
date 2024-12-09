@@ -40,11 +40,12 @@ export async function signup(_prevState: PrevState, formData: FormData) {
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
   const captchaToken = formData.get("captchaToken") as string;
+  const fullName = formData.get("fullName") as string;
 
   const { error } = await supabase.auth.signUp({
     email,
     password,
-    options: { captchaToken },
+    options: { captchaToken, data: { full_name: fullName } },
   });
 
   if (error) {
