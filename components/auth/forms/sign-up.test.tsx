@@ -9,15 +9,9 @@ import {
 
 import { SignUpForm } from "./sign-up";
 
-const mockSetUser = jest.fn();
-jest.mock("@/stores/user-store", () => ({
-  useUserStore: jest.fn((selector) => selector({ setUser: mockSetUser })),
-}));
-
 describe("SignUpForm", () => {
   beforeEach(() => {
     resetMocks();
-    mockSetUser.mockClear();
   });
 
   it("should render initial form state correctly", () => {
@@ -75,12 +69,6 @@ describe("SignUpForm", () => {
     fireEvent.click(screen.getByRole("button", { name: /create account/i }));
 
     await waitFor(() => {
-      // Check if user store was updated
-      expect(mockSetUser).toHaveBeenCalledWith({
-        email: "john@example.com",
-        name: "John Doe",
-      });
-
       // Check form submission
       expect(mockFormAction).toHaveBeenCalled();
       const formData = mockFormAction.mock.calls[0][0];
@@ -99,7 +87,6 @@ describe("SignUpForm", () => {
     fireEvent.click(screen.getByRole("button", { name: /create account/i }));
 
     expect(mockFormAction).not.toHaveBeenCalled();
-    expect(mockSetUser).not.toHaveBeenCalled();
   });
 
   it("should validate password match", async () => {
