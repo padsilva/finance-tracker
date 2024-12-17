@@ -1,0 +1,180 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Label Component should render default label correctly 1`] = `
+<div>
+  <label
+    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+  >
+    Default Label
+  </label>
+</div>
+`;
+
+exports[`Label Component should render in form context 1`] = `
+<div>
+  <div
+    class="space-y-2"
+  >
+    <label
+      class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+      for="username"
+    >
+      Username
+    </label>
+    <input
+      class="peer"
+      id="username"
+      placeholder="Enter username"
+      type="text"
+    />
+    <label
+      class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+      for="email"
+    >
+      Email
+    </label>
+    <input
+      class="peer"
+      id="email"
+      placeholder="Enter email"
+      type="email"
+    />
+  </div>
+</div>
+`;
+
+exports[`Label Component should render with ARIA attributes 1`] = `
+<div>
+  <label
+    aria-label="Test label"
+    aria-required="true"
+    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+    for="test-input"
+  >
+    ARIA Label
+  </label>
+</div>
+`;
+
+exports[`Label Component should render with custom className 1`] = `
+<div>
+  <label
+    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 custom-class"
+  >
+    Custom Label
+  </label>
+</div>
+`;
+
+exports[`Label Component should render with data attributes 1`] = `
+<div>
+  <label
+    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+    data-cy="cypress-label"
+    data-testid="test-label"
+  >
+    Test Label
+  </label>
+</div>
+`;
+
+exports[`Label Component should render with different variants 1`] = `
+<div>
+  <label
+    class="font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-sm"
+  >
+    Small Label
+  </label>
+  <label
+    class="font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-base"
+  >
+    Medium Label
+  </label>
+  <label
+    class="font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-lg"
+  >
+    Large Label
+  </label>
+  <label
+    class="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-bold"
+  >
+    Bold Label
+  </label>
+  <label
+    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 italic"
+  >
+    Italic Label
+  </label>
+</div>
+`;
+
+exports[`Label Component should render with disabled state 1`] = `
+<div>
+  <div>
+    <label
+      class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+    >
+      <input
+        disabled=""
+        type="checkbox"
+      />
+      <span>
+        Disabled checkbox label
+      </span>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`Label Component should render with htmlFor attribute 1`] = `
+<div>
+  <div>
+    <label
+      class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+      for="test-input"
+    >
+      Input Label
+    </label>
+    <input
+      id="test-input"
+      type="text"
+    />
+  </div>
+</div>
+`;
+
+exports[`Label Component should render with nested content 1`] = `
+<div>
+  <label
+    class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+  >
+    <span
+      class="font-bold"
+    >
+      Profile
+    </span>
+    <span
+      class="ml-2 text-gray-500"
+    >
+      (Optional)
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Label Component should render with required state 1`] = `
+<div>
+  <div>
+    <label
+      class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+    >
+      Required field
+      <span
+        class="ml-1 text-red-500"
+      >
+        *
+      </span>
+    </label>
+  </div>
+</div>
+`;

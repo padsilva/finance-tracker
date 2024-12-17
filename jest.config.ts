@@ -8,6 +8,7 @@ const createJestConfig = nextJest({
 
 // Add any custom config to be passed to Jest
 const config: Config = {
+  cache: false,
   coverageProvider: "v8",
   collectCoverage: true,
   coverageDirectory: "coverage",

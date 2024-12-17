@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Command Components should render CommandDialog correctly 1`] = `<div />`;
+
+exports[`Command Components should render CommandGroup with custom styling 1`] = `
+<div>
+  <div>
+    <div>
+      Item 1
+    </div>
+    <div>
+      Item 2
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Command Components should render CommandItem in different states 1`] = `
+<div>
+  <div>
+    Default Item
+  </div>
+  <div>
+    Selected Item
+  </div>
+  <div>
+    Disabled Item
+  </div>
+  <div>
+    Custom Item
+  </div>
+</div>
+`;
+
+exports[`Command Components should render CommandSeparator with custom styling 1`] = `
+<div>
+  <hr />
+</div>
+`;
+
+exports[`Command Components should render CommandShortcut with custom className 1`] = `
+<div>
+  <span
+    class="ml-auto text-xs tracking-widest text-muted-foreground custom-shortcut"
+  >
+    ⌘K
+  </span>
+</div>
+`;

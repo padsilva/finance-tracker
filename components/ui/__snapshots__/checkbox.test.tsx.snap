@@ -1,0 +1,330 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox Component should render checked checkbox correctly 1`] = `
+<div>
+  <button
+    aria-checked="true"
+    class="peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+    data-state="checked"
+    role="checkbox"
+    type="button"
+    value="on"
+  >
+    <span
+      class="flex items-center justify-center text-current"
+      data-state="checked"
+      style="pointer-events: none;"
+    >
+      <svg
+        class="h-4 w-4"
+        fill="none"
+        height="15"
+        viewBox="0 0 15 15"
+        width="15"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Checkbox Component should render disabled states correctly 1`] = `
+<div>
+  <button
+    aria-checked="false"
+    class="peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+    data-disabled=""
+    data-state="unchecked"
+    disabled=""
+    role="checkbox"
+    type="button"
+    value="on"
+  />
+  <button
+    aria-checked="true"
+    class="peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+    data-disabled=""
+    data-state="checked"
+    disabled=""
+    role="checkbox"
+    type="button"
+    value="on"
+  >
+    <span
+      class="flex items-center justify-center text-current"
+      data-disabled=""
+      data-state="checked"
+      style="pointer-events: none;"
+    >
+      <svg
+        class="h-4 w-4"
+        fill="none"
+        height="15"
+        viewBox="0 0 15 15"
+        width="15"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Checkbox Component should render in a form group context 1`] = `
+<div>
+  <div
+    class="space-y-4"
+  >
+    <div
+      aria-labelledby="group-label"
+      role="group"
+    >
+      <div
+        class="font-medium"
+        id="group-label"
+      >
+        Select options
+      </div>
+      <div
+        class="mt-2 space-y-2"
+      >
+        <div
+          class="flex items-center space-x-2"
+        >
+          <button
+            aria-checked="false"
+            class="peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+            data-state="unchecked"
+            id="option1"
+            role="checkbox"
+            type="button"
+            value="on"
+          />
+          <label
+            for="option1"
+          >
+            Option 1
+          </label>
+        </div>
+        <div
+          class="flex items-center space-x-2"
+        >
+          <button
+            aria-checked="false"
+            class="peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+            data-state="unchecked"
+            id="option2"
+            role="checkbox"
+            type="button"
+            value="on"
+          />
+          <label
+            for="option2"
+          >
+            Option 2
+          </label>
+        </div>
+        <div
+          class="flex items-center space-x-2"
+        >
+          <button
+            aria-checked="false"
+            class="peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+            data-state="unchecked"
+            id="option3"
+            role="checkbox"
+            type="button"
+            value="on"
+          />
+          <label
+            for="option3"
+          >
+            Option 3
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Checkbox Component should render indeterminate state 1`] = `
+<div>
+  <button
+    aria-checked="mixed"
+    class="peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+    data-state="indeterminate"
+    role="checkbox"
+    type="button"
+    value="on"
+  >
+    <span
+      class="flex items-center justify-center text-current"
+      data-state="indeterminate"
+      style="pointer-events: none;"
+    >
+      <svg
+        class="h-4 w-4"
+        fill="none"
+        height="15"
+        viewBox="0 0 15 15"
+        width="15"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Checkbox Component should render unchecked checkbox correctly 1`] = `
+<div>
+  <button
+    aria-checked="false"
+    class="peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+    data-state="unchecked"
+    role="checkbox"
+    type="button"
+    value="on"
+  />
+</div>
+`;
+
+exports[`Checkbox Component should render with ARIA attributes 1`] = `
+<div>
+  <button
+    aria-checked="false"
+    aria-describedby="terms-description"
+    aria-label="Accept terms"
+    aria-required="true"
+    class="peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+    data-state="unchecked"
+    role="checkbox"
+    type="button"
+    value="on"
+  />
+</div>
+`;
+
+exports[`Checkbox Component should render with custom className 1`] = `
+<div>
+  <button
+    aria-checked="false"
+    class="peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground custom-checkbox-class"
+    data-state="unchecked"
+    role="checkbox"
+    type="button"
+    value="on"
+  />
+</div>
+`;
+
+exports[`Checkbox Component should render with data attributes 1`] = `
+<div>
+  <button
+    aria-checked="false"
+    class="peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+    data-disabled=""
+    data-state="checked"
+    data-testid="test-checkbox"
+    role="checkbox"
+    type="button"
+    value="on"
+  />
+</div>
+`;
+
+exports[`Checkbox Component should render with different sizes via className 1`] = `
+<div>
+  <button
+    aria-checked="false"
+    class="peer shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground h-3 w-3"
+    data-state="unchecked"
+    role="checkbox"
+    type="button"
+    value="on"
+  />
+  <button
+    aria-checked="false"
+    class="peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+    data-state="unchecked"
+    role="checkbox"
+    type="button"
+    value="on"
+  />
+   
+  <button
+    aria-checked="false"
+    class="peer shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground h-5 w-5"
+    data-state="unchecked"
+    role="checkbox"
+    type="button"
+    value="on"
+  />
+</div>
+`;
+
+exports[`Checkbox Component should render with form attributes 1`] = `
+<div>
+  <div
+    class="space-y-4"
+  >
+    <div
+      class="flex items-center space-x-2"
+    >
+      <button
+        aria-checked="false"
+        aria-required="true"
+        class="peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+        data-state="unchecked"
+        id="terms"
+        role="checkbox"
+        type="button"
+        value="on"
+      />
+      <label
+        for="terms"
+      >
+        Accept terms and conditions
+      </label>
+    </div>
+    <div
+      class="flex items-center space-x-2"
+    >
+      <button
+        aria-checked="false"
+        class="peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+        data-state="unchecked"
+        id="marketing"
+        role="checkbox"
+        type="button"
+        value="on"
+      />
+      <label
+        for="marketing"
+      >
+        Receive marketing emails
+      </label>
+    </div>
+  </div>
+</div>
+`;

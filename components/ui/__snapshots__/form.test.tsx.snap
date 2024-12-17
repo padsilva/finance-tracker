@@ -1,0 +1,1048 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form Components Basic Components should render FormAlert variants 1`] = `
+<div>
+  <div>
+    <div
+      class="relative w-full rounded-lg border px-4 py-3 text-sm [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-3 [&>svg~*]:pl-7 border-destructive/50 text-destructive dark:border-destructive [&>svg]:text-destructive dark:bg-foreground"
+      role="alert"
+    >
+      <svg
+        class="lucide lucide-circle-alert h-4 w-4"
+        fill="none"
+        height="24"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle
+          cx="12"
+          cy="12"
+          r="10"
+        />
+        <line
+          x1="12"
+          x2="12"
+          y1="8"
+          y2="12"
+        />
+        <line
+          x1="12"
+          x2="12.01"
+          y1="16"
+          y2="16"
+        />
+      </svg>
+      <h5
+        class="font-medium leading-none tracking-tight"
+      >
+        Test error message
+      </h5>
+    </div>
+    <div
+      class="relative w-full rounded-lg border px-4 py-3 text-sm [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-3 [&>svg~*]:pl-7 bg-background text-foreground [&>svg]:text-primary"
+      role="alert"
+    >
+      <svg
+        class="lucide lucide-circle-check-big h-4 w-4"
+        fill="none"
+        height="24"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M21.801 10A10 10 0 1 1 17 3.335"
+        />
+        <path
+          d="m9 11 3 3L22 4"
+        />
+      </svg>
+      <h5
+        class="font-medium leading-none tracking-tight"
+      >
+        Test success message
+      </h5>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Form Components Checkbox Fields should render FormCheckboxField 1`] = `
+<div>
+  <div
+    class="flex w-full flex-row items-start space-x-3 space-y-0 rounded-md border p-4 shadow sm:w-52"
+  >
+    <button
+      aria-checked="false"
+      aria-describedby=":rg:-form-item-description"
+      aria-invalid="false"
+      class="peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+      data-state="unchecked"
+      id=":rg:-form-item"
+      role="checkbox"
+      type="button"
+      value="on"
+    />
+    <div
+      class="space-y-1 leading-none"
+    >
+      <label
+        class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        for=":rg:-form-item"
+      >
+        Food & Dining
+      </label>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Form Components Combobox Fields should render FormComboboxField with custom display format 1`] = `
+<div>
+  <div
+    class="space-y-2 flex flex-col"
+  >
+    <label
+      class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+      for=":re:-form-item"
+    >
+      Category
+    </label>
+    <div
+      class="relative"
+    >
+      <button
+        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 absolute left-0 top-0"
+        disabled=""
+      >
+        <svg
+          class="lucide lucide-building"
+          fill="none"
+          height="16"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            height="20"
+            rx="2"
+            ry="2"
+            width="16"
+            x="4"
+            y="2"
+          />
+          <path
+            d="M9 22v-4h6v4"
+          />
+          <path
+            d="M8 6h.01"
+          />
+          <path
+            d="M16 6h.01"
+          />
+          <path
+            d="M12 6h.01"
+          />
+          <path
+            d="M12 10h.01"
+          />
+          <path
+            d="M12 14h.01"
+          />
+          <path
+            d="M16 10h.01"
+          />
+          <path
+            d="M16 14h.01"
+          />
+          <path
+            d="M8 10h.01"
+          />
+          <path
+            d="M8 14h.01"
+          />
+        </svg>
+      </button>
+      <button
+        aria-controls="radix-:rf:"
+        aria-describedby=":re:-form-item-description"
+        aria-expanded="false"
+        aria-haspopup="dialog"
+        aria-invalid="false"
+        class="inline-flex items-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 w-full pl-12 justify-between"
+        data-state="closed"
+        data-testid="combobox-button"
+        id=":re:-form-item"
+        type="button"
+      >
+        FOOD - Food & Dining
+        <svg
+          class="lucide lucide-chevrons-up-down opacity-50"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="m7 15 5 5 5-5"
+          />
+          <path
+            d="m7 9 5-5 5 5"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Form Components Combobox Fields should render FormComboboxField with items 1`] = `
+<div>
+  <div
+    class="space-y-2 flex flex-col"
+  >
+    <label
+      class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+      for=":rc:-form-item"
+    >
+      Category
+    </label>
+    <div
+      class="relative"
+    >
+      <button
+        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 absolute left-0 top-0"
+        disabled=""
+      >
+        <svg
+          class="lucide lucide-building"
+          fill="none"
+          height="16"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            height="20"
+            rx="2"
+            ry="2"
+            width="16"
+            x="4"
+            y="2"
+          />
+          <path
+            d="M9 22v-4h6v4"
+          />
+          <path
+            d="M8 6h.01"
+          />
+          <path
+            d="M16 6h.01"
+          />
+          <path
+            d="M12 6h.01"
+          />
+          <path
+            d="M12 10h.01"
+          />
+          <path
+            d="M12 14h.01"
+          />
+          <path
+            d="M16 10h.01"
+          />
+          <path
+            d="M16 14h.01"
+          />
+          <path
+            d="M8 10h.01"
+          />
+          <path
+            d="M8 14h.01"
+          />
+        </svg>
+      </button>
+      <button
+        aria-controls="radix-:rd:"
+        aria-describedby=":rc:-form-item-description"
+        aria-expanded="false"
+        aria-haspopup="dialog"
+        aria-invalid="false"
+        class="inline-flex items-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 w-full pl-12 justify-between text-muted-foreground"
+        data-state="closed"
+        data-testid="combobox-button"
+        id=":rc:-form-item"
+        type="button"
+      >
+        Select category
+        <svg
+          class="lucide lucide-chevrons-up-down opacity-50"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="m7 15 5 5 5-5"
+          />
+          <path
+            d="m7 9 5-5 5 5"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Form Components Complete Form should render form with all field types 1`] = `
+<div>
+  <div
+    class="space-y-4"
+  >
+    <div
+      class="space-y-2"
+    >
+      <label
+        class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        for=":ri:-form-item"
+      >
+        Email
+      </label>
+      <div
+        aria-describedby=":ri:-form-item-description"
+        aria-invalid="false"
+        class="relative"
+        id=":ri:-form-item"
+      >
+        <button
+          class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 absolute left-0 top-0"
+          disabled=""
+        >
+          <svg
+            class="lucide lucide-mail"
+            fill="none"
+            height="16"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              height="16"
+              rx="2"
+              width="20"
+              x="2"
+              y="4"
+            />
+            <path
+              d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
+            />
+          </svg>
+        </button>
+        <input
+          class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm pl-12"
+          name="email"
+          placeholder="Enter email"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      class="space-y-2"
+    >
+      <label
+        class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        for=":rj:-form-item"
+      >
+        Password
+      </label>
+      <div
+        aria-describedby=":rj:-form-item-description"
+        aria-invalid="false"
+        class="relative"
+        id=":rj:-form-item"
+      >
+        <button
+          class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 absolute left-0 top-0"
+          disabled=""
+        >
+          <svg
+            class="lucide lucide-lock"
+            fill="none"
+            height="16"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              height="11"
+              rx="2"
+              ry="2"
+              width="18"
+              x="3"
+              y="11"
+            />
+            <path
+              d="M7 11V7a5 5 0 0 1 10 0v4"
+            />
+          </svg>
+        </button>
+        <input
+          class="flex h-9 w-full rounded-md border border-input bg-transparent py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm px-12"
+          name="password"
+          placeholder="Enter password"
+          type="password"
+          value=""
+        />
+        <button
+          class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 absolute right-0 top-0 text-muted-foreground"
+          data-testid="toggle-visibility"
+          type="button"
+        >
+          <svg
+            class="lucide lucide-eye"
+            fill="none"
+            height="16"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"
+            />
+            <circle
+              cx="12"
+              cy="12"
+              r="3"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      class="space-y-2"
+    >
+      <label
+        class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        for=":rk:-form-item"
+      >
+        Amount
+      </label>
+      <div
+        aria-describedby=":rk:-form-item-description"
+        aria-invalid="false"
+        class="relative"
+        id=":rk:-form-item"
+      >
+        <button
+          class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 absolute left-0 top-0"
+          disabled=""
+        >
+          <svg
+            class="lucide lucide-dollar-sign"
+            fill="none"
+            height="16"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <line
+              x1="12"
+              x2="12"
+              y1="2"
+              y2="22"
+            />
+            <path
+              d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+            />
+          </svg>
+        </button>
+        <input
+          class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm pl-12"
+          inputmode="decimal"
+          name="amount"
+          placeholder="0.00"
+          step="0.01"
+          type="number"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      class="space-y-2"
+    >
+      <label
+        class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        for=":rl:-form-item"
+      >
+        Transaction Type
+      </label>
+      <div
+        class="relative"
+      >
+        <button
+          class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 absolute left-0 top-0"
+          disabled=""
+        >
+          <svg
+            class="lucide lucide-user"
+            fill="none"
+            height="16"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"
+            />
+            <circle
+              cx="12"
+              cy="7"
+              r="4"
+            />
+          </svg>
+        </button>
+        <button
+          aria-autocomplete="none"
+          aria-controls="radix-:rm:"
+          aria-describedby=":rl:-form-item-description"
+          aria-expanded="false"
+          aria-invalid="false"
+          class="flex h-9 w-full items-center justify-between whitespace-nowrap rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 pl-12"
+          data-placeholder=""
+          data-state="closed"
+          dir="ltr"
+          id=":rl:-form-item"
+          role="combobox"
+          type="button"
+        >
+          <span
+            style="pointer-events: none;"
+          >
+            Select type
+          </span>
+          <svg
+            aria-hidden="true"
+            class="h-4 w-4 opacity-50"
+            fill="none"
+            height="15"
+            viewBox="0 0 15 15"
+            width="15"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M3.13523 6.15803C3.3241 5.95657 3.64052 5.94637 3.84197 6.13523L7.5 9.56464L11.158 6.13523C11.3595 5.94637 11.6759 5.95657 11.8648 6.15803C12.0536 6.35949 12.0434 6.67591 11.842 6.86477L7.84197 10.6148C7.64964 10.7951 7.35036 10.7951 7.15803 10.6148L3.15803 6.86477C2.95657 6.67591 2.94637 6.35949 3.13523 6.15803Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      class="space-y-2 flex flex-col"
+    >
+      <label
+        class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        for=":rn:-form-item"
+      >
+        Category
+      </label>
+      <div
+        class="relative"
+      >
+        <button
+          class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 absolute left-0 top-0"
+          disabled=""
+        >
+          <svg
+            class="lucide lucide-building"
+            fill="none"
+            height="16"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              height="20"
+              rx="2"
+              ry="2"
+              width="16"
+              x="4"
+              y="2"
+            />
+            <path
+              d="M9 22v-4h6v4"
+            />
+            <path
+              d="M8 6h.01"
+            />
+            <path
+              d="M16 6h.01"
+            />
+            <path
+              d="M12 6h.01"
+            />
+            <path
+              d="M12 10h.01"
+            />
+            <path
+              d="M12 14h.01"
+            />
+            <path
+              d="M16 10h.01"
+            />
+            <path
+              d="M16 14h.01"
+            />
+            <path
+              d="M8 10h.01"
+            />
+            <path
+              d="M8 14h.01"
+            />
+          </svg>
+        </button>
+        <button
+          aria-controls="radix-:ro:"
+          aria-describedby=":rn:-form-item-description"
+          aria-expanded="false"
+          aria-haspopup="dialog"
+          aria-invalid="false"
+          class="inline-flex items-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 w-full pl-12 justify-between text-muted-foreground"
+          data-state="closed"
+          data-testid="combobox-button"
+          id=":rn:-form-item"
+          type="button"
+        >
+          Select category
+          <svg
+            class="lucide lucide-chevrons-up-down opacity-50"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m7 15 5 5 5-5"
+            />
+            <path
+              d="m7 9 5-5 5 5"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      class="flex gap-4"
+    >
+      <div
+        class="flex w-full flex-row items-start space-x-3 space-y-0 rounded-md border p-4 shadow sm:w-52"
+      >
+        <button
+          aria-checked="false"
+          aria-describedby=":rp:-form-item-description"
+          aria-invalid="false"
+          class="peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+          data-state="unchecked"
+          id=":rp:-form-item"
+          role="checkbox"
+          type="button"
+          value="on"
+        />
+        <div
+          class="space-y-1 leading-none"
+        >
+          <label
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            for=":rp:-form-item"
+          >
+            Food & Dining
+          </label>
+        </div>
+      </div>
+      <div
+        class="flex w-full flex-row items-start space-x-3 space-y-0 rounded-md border p-4 shadow sm:w-52"
+      >
+        <button
+          aria-checked="false"
+          aria-describedby=":rq:-form-item-description"
+          aria-invalid="false"
+          class="peer h-4 w-4 shrink-0 rounded-sm border border-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground"
+          data-state="unchecked"
+          id=":rq:-form-item"
+          role="checkbox"
+          type="button"
+          value="on"
+        />
+        <div
+          class="space-y-1 leading-none"
+        >
+          <label
+            class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            for=":rq:-form-item"
+          >
+            Transportation
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Form Components Input Fields should render basic input fields 1`] = `
+<div>
+  <div
+    class="space-y-2"
+  >
+    <label
+      class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+      for=":r0:-form-item"
+    >
+      Email
+    </label>
+    <div
+      aria-describedby=":r0:-form-item-description"
+      aria-invalid="false"
+      class="relative"
+      id=":r0:-form-item"
+    >
+      <button
+        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 absolute left-0 top-0"
+        disabled=""
+      >
+        <svg
+          class="lucide lucide-mail"
+          fill="none"
+          height="16"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            height="16"
+            rx="2"
+            width="20"
+            x="2"
+            y="4"
+          />
+          <path
+            d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
+          />
+        </svg>
+      </button>
+      <input
+        class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm pl-12"
+        name="email"
+        placeholder="Enter email"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    class="space-y-2"
+  >
+    <label
+      class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+      for=":r1:-form-item"
+    >
+      Password
+    </label>
+    <div
+      aria-describedby=":r1:-form-item-description"
+      aria-invalid="false"
+      class="relative"
+      id=":r1:-form-item"
+    >
+      <button
+        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 absolute left-0 top-0"
+        disabled=""
+      >
+        <svg
+          class="lucide lucide-lock"
+          fill="none"
+          height="16"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            height="11"
+            rx="2"
+            ry="2"
+            width="18"
+            x="3"
+            y="11"
+          />
+          <path
+            d="M7 11V7a5 5 0 0 1 10 0v4"
+          />
+        </svg>
+      </button>
+      <input
+        class="flex h-9 w-full rounded-md border border-input bg-transparent py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm px-12"
+        name="password"
+        placeholder="Enter password"
+        type="password"
+        value=""
+      />
+      <button
+        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 absolute right-0 top-0 text-muted-foreground"
+        data-testid="toggle-visibility"
+        type="button"
+      >
+        <svg
+          class="lucide lucide-eye"
+          fill="none"
+          height="16"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"
+          />
+          <circle
+            cx="12"
+            cy="12"
+            r="3"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Form Components Select Fields should render FormSelectField with options 1`] = `
+<div>
+  <div
+    class="space-y-2"
+  >
+    <label
+      class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+      for=":r4:-form-item"
+    >
+      Transaction Type
+    </label>
+    <div
+      class="relative"
+    >
+      <button
+        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 absolute left-0 top-0"
+        disabled=""
+      >
+        <svg
+          class="lucide lucide-user"
+          fill="none"
+          height="16"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"
+          />
+          <circle
+            cx="12"
+            cy="7"
+            r="4"
+          />
+        </svg>
+      </button>
+      <button
+        aria-autocomplete="none"
+        aria-controls="radix-:r5:"
+        aria-describedby=":r4:-form-item-description"
+        aria-expanded="false"
+        aria-invalid="false"
+        class="flex h-9 w-full items-center justify-between whitespace-nowrap rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 pl-12"
+        data-placeholder=""
+        data-state="closed"
+        dir="ltr"
+        id=":r4:-form-item"
+        role="combobox"
+        type="button"
+      >
+        <span
+          style="pointer-events: none;"
+        >
+          Select type
+        </span>
+        <svg
+          aria-hidden="true"
+          class="h-4 w-4 opacity-50"
+          fill="none"
+          height="15"
+          viewBox="0 0 15 15"
+          width="15"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M3.13523 6.15803C3.3241 5.95657 3.64052 5.94637 3.84197 6.13523L7.5 9.56464L11.158 6.13523C11.3595 5.94637 11.6759 5.95657 11.8648 6.15803C12.0536 6.35949 12.0434 6.67591 11.842 6.86477L7.84197 10.6148C7.64964 10.7951 7.35036 10.7951 7.15803 10.6148L3.15803 6.86477C2.95657 6.67591 2.94637 6.35949 3.13523 6.15803Z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Form Components Select Fields should render FormSelectField with selected value 1`] = `
+<div>
+  <div
+    class="space-y-2"
+  >
+    <label
+      class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+      for=":r8:-form-item"
+    >
+      Transaction Type
+    </label>
+    <div
+      class="relative"
+    >
+      <button
+        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2 absolute left-0 top-0"
+        disabled=""
+      >
+        <svg
+          class="lucide lucide-user"
+          fill="none"
+          height="16"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"
+          />
+          <circle
+            cx="12"
+            cy="7"
+            r="4"
+          />
+        </svg>
+      </button>
+      <button
+        aria-autocomplete="none"
+        aria-controls="radix-:r9:"
+        aria-describedby=":r8:-form-item-description"
+        aria-expanded="false"
+        aria-invalid="false"
+        class="flex h-9 w-full items-center justify-between whitespace-nowrap rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1 pl-12"
+        data-state="closed"
+        dir="ltr"
+        id=":r8:-form-item"
+        role="combobox"
+        type="button"
+      >
+        <span
+          style="pointer-events: none;"
+        >
+          Income
+        </span>
+        <svg
+          aria-hidden="true"
+          class="h-4 w-4 opacity-50"
+          fill="none"
+          height="15"
+          viewBox="0 0 15 15"
+          width="15"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M3.13523 6.15803C3.3241 5.95657 3.64052 5.94637 3.84197 6.13523L7.5 9.56464L11.158 6.13523C11.3595 5.94637 11.6759 5.95657 11.8648 6.15803C12.0536 6.35949 12.0434 6.67591 11.842 6.86477L7.84197 10.6148C7.64964 10.7951 7.35036 10.7951 7.15803 10.6148L3.15803 6.86477C2.95657 6.67591 2.94637 6.35949 3.13523 6.15803Z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
