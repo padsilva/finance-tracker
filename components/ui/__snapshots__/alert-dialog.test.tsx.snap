@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert Dialog should render complete alert dialog 1`] = `
+<div>
+  <button
+    aria-controls="radix-:r0:"
+    aria-expanded="false"
+    aria-haspopup="dialog"
+    data-state="closed"
+    type="button"
+  >
+    Open Dialog
+  </button>
+</div>
+`;
+
+exports[`Alert Dialog should render with custom HTML attributes 1`] = `
+<div>
+  <button
+    aria-controls="radix-:r6:"
+    aria-expanded="false"
+    aria-haspopup="dialog"
+    aria-label="Open dialog"
+    data-state="closed"
+    type="button"
+  >
+    Open Dialog
+  </button>
+</div>
+`;
+
+exports[`Alert Dialog should render with custom classes 1`] = `
+<div>
+  <button
+    aria-controls="radix-:r3:"
+    aria-expanded="false"
+    aria-haspopup="dialog"
+    class="custom-trigger"
+    data-state="closed"
+    type="button"
+  >
+    Open Dialog
+  </button>
+</div>
+`;

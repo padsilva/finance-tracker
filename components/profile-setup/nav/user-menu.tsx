@@ -1,8 +1,8 @@
 "use client";
 
-import { startTransition } from "react";
+import { useState, useTransition } from "react";
 
-import { ChevronDown, LogOut } from "lucide-react";
+import { ChevronDown, Loader2, LogOut } from "lucide-react";
 
 import { logout } from "@/app/actions";
 import {
@@ -32,14 +32,23 @@ interface UserMenuProps {
 }
 
 export const UserMenu: React.FC<UserMenuProps> = ({ email, name }) => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [state, formAction] = useTransition();
+
   const handleLogout = () => {
-    startTransition(() => {
+    formAction(() => {
       logout();
     });
   };
 
+  const closeDialog = () => {
+    if (!state) {
+      setIsDialogOpen(false);
+    }
+  };
+
   return (
-    <DropdownMenu>
+    <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
         <Button
           variant="ghost"
@@ -55,14 +64,22 @@ export const UserMenu: React.FC<UserMenuProps> = ({ email, name }) => {
           <span className="text-xs text-muted-foreground">{email}</span>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <AlertDialog>
+        <AlertDialog open={isDialogOpen}>
           <AlertDialogTrigger asChild>
             <DropdownMenuItem
+              asChild
               className="gap-2"
               onSelect={(e) => e.preventDefault()}
             >
-              <LogOut className="h-4 w-4" />
-              <span>Log out</span>
+              <Button
+                variant="ghost"
+                className="w-full justify-start gap-2"
+                data-testid="logout-button"
+                onClick={() => setIsDialogOpen(true)}
+              >
+                <LogOut className="h-4 w-4" />
+                <span>Log out</span>
+              </Button>
             </DropdownMenuItem>
           </AlertDialogTrigger>
           <AlertDialogContent>
@@ -75,12 +92,29 @@ export const UserMenu: React.FC<UserMenuProps> = ({ email, name }) => {
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
-              <AlertDialogCancel>Cancel</AlertDialogCancel>
+              <AlertDialogCancel asChild>
+                <Button
+                  variant="ghost"
+                  data-testid="cancel-button"
+                  disabled={state}
+                  onClick={closeDialog}
+                >
+                  Cancel
+                </Button>
+              </AlertDialogCancel>
               <AlertDialogAction
+                disabled={state}
                 onClick={handleLogout}
                 className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
               >
-                Log out
+                {state ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Logging out...
+                  </>
+                ) : (
+                  "Log out"
+                )}
               </AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>

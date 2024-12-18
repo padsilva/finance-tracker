@@ -105,6 +105,8 @@ describe("UserMenu", () => {
   it("should show confirmation dialog with correct content", () => {
     render(<UserMenu {...defaultProps} />);
 
+    fireEvent.click(screen.getByTestId("logout-button"));
+
     expect(screen.getByTestId("alert-title")).toHaveTextContent(
       "Are you sure you want to logout?",
     );
@@ -133,7 +135,7 @@ describe("UserMenu", () => {
   it("should not call logout when cancelled", () => {
     render(<UserMenu {...defaultProps} />);
 
-    const cancelButton = screen.getByTestId("alert-cancel");
+    const cancelButton = screen.getByTestId("cancel-button");
     fireEvent.click(cancelButton);
 
     expect(mockLogout).not.toHaveBeenCalled();
