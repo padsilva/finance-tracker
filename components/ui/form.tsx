@@ -333,7 +333,7 @@ const FormIconInputField = <TFieldValues extends FieldValues = FieldValues>({
               onBlur={(e) => {
                 const value = e.target.value;
                 // When input loses focus, format to 2 decimal places
-                if (value) {
+                if (value && inputMode === "decimal") {
                   field.onChange(Number(value).toFixed(2));
                 }
               }}
