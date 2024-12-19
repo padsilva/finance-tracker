@@ -15,10 +15,6 @@ describe("NavBar", () => {
     mockPathname.mockReturnValue("/");
   });
 
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
-
   it("should render logo and brand name", () => {
     render(<NavBar />);
 

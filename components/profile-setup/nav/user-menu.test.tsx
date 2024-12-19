@@ -61,7 +61,7 @@ jest.mock("@/components/ui/alert-dialog", () => ({
     <div data-testid="alert-description">{children}</div>
   ),
   AlertDialogCancel: ({ children }: { children: React.ReactNode }) => (
-    <button data-testid="alert-cancel">{children}</button>
+    <button data-testid="cancel-button">{children}</button>
   ),
   AlertDialogAction: ({
     children,
@@ -70,7 +70,7 @@ jest.mock("@/components/ui/alert-dialog", () => ({
     children: React.ReactNode;
     onClick?: () => void;
   }) => (
-    <button data-testid="alert-action" onClick={onClick}>
+    <button data-testid="confirm-button" onClick={onClick}>
       {children}
     </button>
   ),
@@ -113,8 +113,8 @@ describe("UserMenu", () => {
     expect(screen.getByTestId("alert-description")).toHaveTextContent(
       "You will need to sign in again to access your account.",
     );
-    expect(screen.getByTestId("alert-cancel")).toHaveTextContent("Cancel");
-    expect(screen.getByTestId("alert-action")).toHaveTextContent("Log out");
+    expect(screen.getByTestId("cancel-button")).toHaveTextContent("Cancel");
+    expect(screen.getByTestId("confirm-button")).toHaveTextContent("Log out");
   });
 
   it("should call logout function when confirmed in dialog", async () => {
@@ -126,7 +126,7 @@ describe("UserMenu", () => {
     const logoutItem = screen.getAllByText("Log out")[0];
     fireEvent.click(logoutItem);
 
-    const confirmButton = screen.getByTestId("alert-action");
+    const confirmButton = screen.getByTestId("confirm-button");
     fireEvent.click(confirmButton);
 
     expect(mockLogout).toHaveBeenCalled();
