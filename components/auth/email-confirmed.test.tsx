@@ -11,7 +11,6 @@ describe("EmailConfirmed", () => {
 
   afterEach(() => {
     window.close = originalClose;
-    jest.clearAllMocks();
   });
 
   it("should render initial state correctly", () => {

@@ -7,8 +7,6 @@ import { ChevronDown, Loader2, LogOut } from "lucide-react";
 import { logout } from "@/app/actions";
 import {
   AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
   AlertDialogFooter,
@@ -92,20 +90,19 @@ export const UserMenu: React.FC<UserMenuProps> = ({ email, name }) => {
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
-              <AlertDialogCancel asChild>
-                <Button
-                  variant="ghost"
-                  data-testid="cancel-button"
-                  disabled={state}
-                  onClick={closeDialog}
-                >
-                  Cancel
-                </Button>
-              </AlertDialogCancel>
-              <AlertDialogAction
+              <Button
+                data-testid="cancel-button"
+                disabled={state}
+                onClick={closeDialog}
+                variant="ghost"
+              >
+                Cancel
+              </Button>
+              <Button
+                data-testid="confirm-button"
                 disabled={state}
                 onClick={handleLogout}
-                className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+                variant="destructive"
               >
                 {state ? (
                   <>
@@ -115,7 +112,7 @@ export const UserMenu: React.FC<UserMenuProps> = ({ email, name }) => {
                 ) : (
                   "Log out"
                 )}
-              </AlertDialogAction>
+              </Button>
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialog>

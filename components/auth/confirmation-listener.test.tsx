@@ -47,10 +47,6 @@ describe("ConfirmationListener", () => {
     (createClient as jest.Mock).mockReturnValue(mockSupabase);
   });
 
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
-
   it("should show loading state initially", async () => {
     mockSupabase.auth.getUser.mockResolvedValue({
       data: {
