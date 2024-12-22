@@ -10,6 +10,8 @@ import {
 
 import { VerifySignUpForm } from "./verify-signup";
 
+const mockSearchParams = new URLSearchParams();
+mockSearchParams.set("email", "test@example.com");
 jest.mock("next/navigation", () => ({
   useRouter: jest.fn(() => ({
     push: jest.fn(),
@@ -19,17 +21,7 @@ jest.mock("next/navigation", () => ({
     forward: jest.fn(),
     prefetch: jest.fn(),
   })),
-}));
-
-const mockUser = {
-  email: "test@example.com",
-  name: "Test User",
-};
-const mockSetUser = jest.fn();
-jest.mock("@/stores/user-store", () => ({
-  useUserStore: jest.fn((selector) =>
-    selector({ user: mockUser, setUser: mockSetUser }),
-  ),
+  useSearchParams: jest.fn(() => mockSearchParams),
 }));
 
 const mockSupabase = {
@@ -56,7 +48,6 @@ jest.mock("@/lib/supabase/client", () => ({
 describe("VerifySignUpForm", () => {
   beforeEach(() => {
     resetMocks();
-    mockSetUser.mockClear();
   });
 
   it("should render initial form state correctly", () => {
@@ -67,7 +58,7 @@ describe("VerifySignUpForm", () => {
     expect(screen.getByText("Email Confirmation")).toBeInTheDocument();
 
     // Check if user email is displayed
-    expect(screen.getByText(mockUser.email)).toBeInTheDocument();
+    expect(screen.getByText("test@example.com")).toBeInTheDocument();
 
     // Check for confirmation listener
     expect(screen.getByTestId("confirmation-listener")).toBeInTheDocument();
@@ -92,7 +83,7 @@ describe("VerifySignUpForm", () => {
     await waitFor(() => {
       expect(mockFormAction).toHaveBeenCalled();
       const formData = mockFormAction.mock.calls[0][0];
-      expect(formData.get("email")).toBe(mockUser.email);
+      expect(formData.get("email")).toBe("test@example.com");
       expect(formData.get("captchaToken")).toBe("mock-captcha-token");
     });
   });

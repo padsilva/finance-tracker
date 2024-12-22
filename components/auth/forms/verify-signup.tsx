@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Turnstile } from "@marsidev/react-turnstile";
 import { ArrowLeft, Loader2, Mail } from "lucide-react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 
 import { resendVerificationEmail } from "@/app/(auth)/actions";
@@ -21,14 +22,15 @@ import {
 } from "@/components/ui/card";
 import { Form, FormAlert } from "@/components/ui/form";
 import { env } from "@/lib/env";
-import { useUserStore } from "@/stores/user-store";
 import { resendSchema, ResendValues } from "@/utils/validation-schema";
 
 export const VerifySignUpForm = () => {
-  const user = useUserStore((state) => state.user);
+  const searchParams = useSearchParams();
+  const email = searchParams.get("email")!;
+
   const form = useForm<ResendValues>({
     resolver: zodResolver(resendSchema),
-    defaultValues: { email: user?.email },
+    defaultValues: { email },
   });
 
   const [state, formAction, isPending] = useActionState(
@@ -59,7 +61,7 @@ export const VerifySignUpForm = () => {
         <CardTitle className="text-2xl">Email Confirmation</CardTitle>
         <CardDescription>
           {`We've sent a confirmation link to `}
-          <span className="font-medium text-primary">{user?.email}</span>.
+          <span className="font-medium text-primary">{email}</span>.
         </CardDescription>
       </CardHeader>
       <CardContent className="pb-3">
