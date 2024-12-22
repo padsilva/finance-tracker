@@ -6,7 +6,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Turnstile } from "@marsidev/react-turnstile";
 import { ArrowLeft, Loader2, Mail } from "lucide-react";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 
 import { resendVerificationEmail } from "@/app/(auth)/actions";
@@ -24,10 +23,13 @@ import { Form, FormAlert } from "@/components/ui/form";
 import { env } from "@/lib/env";
 import { resendSchema, ResendValues } from "@/utils/validation-schema";
 
-export const VerifySignUpForm = () => {
-  const searchParams = useSearchParams();
-  const email = searchParams.get("email")!;
+interface VerifySignUpFormProps {
+  email: string;
+}
 
+export const VerifySignUpForm: React.FC<VerifySignUpFormProps> = ({
+  email,
+}) => {
   const form = useForm<ResendValues>({
     resolver: zodResolver(resendSchema),
     defaultValues: { email },

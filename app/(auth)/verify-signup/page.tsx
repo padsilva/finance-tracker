@@ -1,9 +1,16 @@
-import type { Metadata } from "next";
+"use client";
+
+import { redirect, useSearchParams } from "next/navigation";
 
 import { VerifySignUpForm } from "@/components/auth/forms/verify-signup";
 
 export default function VerifySignUpPage() {
-  return <VerifySignUpForm />;
-}
+  const searchParams = useSearchParams();
+  const email = searchParams.get("email");
 
-export const metadata: Metadata = { title: "Verify Sign Up" };
+  if (!email) {
+    redirect("/signin");
+  }
+
+  return <VerifySignUpForm email={email} />;
+}

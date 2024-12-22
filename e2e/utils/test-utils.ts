@@ -31,7 +31,11 @@ export const mockSession = {
   user: mockUser,
 };
 
-export const jsonResponse = (data: any, status = 200, headers?: HeadersInit) =>
+export const jsonResponse = (
+  data: Record<string, any>,
+  status = 200,
+  headers?: HeadersInit,
+) =>
   new Response(JSON.stringify(data), {
     status,
     headers: {
@@ -61,7 +65,6 @@ export const errorResponse = (
 
 export const setupTurnstileMock = async (page: Page) => {
   await page.addInitScript(() => {
-    // eslint-d
     (window as any).turnstile = {
       render: (_: any, { callback }: any) => {
         callback?.("test-turnstile-token");
@@ -78,4 +81,12 @@ export const checkCaptchaButton = async (page: Page) => {
   if (await captchaButton.isVisible()) {
     await captchaButton.click();
   }
+};
+
+export const waitForNavigation = async (page: Page, expectedUrl: string) => {
+  await Promise.all([
+    page.waitForURL(expectedUrl),
+    page.waitForLoadState("networkidle"),
+    page.waitForLoadState("domcontentloaded"),
+  ]);
 };

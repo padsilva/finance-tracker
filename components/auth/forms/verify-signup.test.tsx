@@ -10,8 +10,6 @@ import {
 
 import { VerifySignUpForm } from "./verify-signup";
 
-const mockSearchParams = new URLSearchParams();
-mockSearchParams.set("email", "test@example.com");
 jest.mock("next/navigation", () => ({
   useRouter: jest.fn(() => ({
     push: jest.fn(),
@@ -21,8 +19,9 @@ jest.mock("next/navigation", () => ({
     forward: jest.fn(),
     prefetch: jest.fn(),
   })),
-  useSearchParams: jest.fn(() => mockSearchParams),
 }));
+
+const mockEmail = "test@example.com";
 
 const mockSupabase = {
   auth: {
@@ -30,7 +29,7 @@ const mockSupabase = {
       data: {
         user: {
           id: "123",
-          email: "test@example.com",
+          email: mockEmail,
           email_confirmed_at: null,
         },
       },
@@ -51,14 +50,14 @@ describe("VerifySignUpForm", () => {
   });
 
   it("should render initial form state correctly", () => {
-    render(<VerifySignUpForm />);
+    render(<VerifySignUpForm email={mockEmail} />);
 
     // Check header content
     expect(screen.getByTestId("mail-icon")).toBeInTheDocument();
     expect(screen.getByText("Email Confirmation")).toBeInTheDocument();
 
     // Check if user email is displayed
-    expect(screen.getByText("test@example.com")).toBeInTheDocument();
+    expect(screen.getByText(mockEmail)).toBeInTheDocument();
 
     // Check for confirmation listener
     expect(screen.getByTestId("confirmation-listener")).toBeInTheDocument();
@@ -68,7 +67,7 @@ describe("VerifySignUpForm", () => {
   });
 
   it("should handle resend email submission with valid data", async () => {
-    render(<VerifySignUpForm />);
+    render(<VerifySignUpForm email={mockEmail} />);
 
     // Complete captcha
     const captchaButton = screen.getAllByText("Verify Captcha")[0];
@@ -83,7 +82,7 @@ describe("VerifySignUpForm", () => {
     await waitFor(() => {
       expect(mockFormAction).toHaveBeenCalled();
       const formData = mockFormAction.mock.calls[0][0];
-      expect(formData.get("email")).toBe("test@example.com");
+      expect(formData.get("email")).toBe(mockEmail);
       expect(formData.get("captchaToken")).toBe("mock-captcha-token");
     });
   });
@@ -91,7 +90,7 @@ describe("VerifySignUpForm", () => {
   it("should show loading state during submission", () => {
     setLoadingState(true);
 
-    render(<VerifySignUpForm />);
+    render(<VerifySignUpForm email={mockEmail} />);
 
     const submitButton = screen.getByRole("button", { name: /resending/i });
     expect(submitButton).toBeDisabled();
@@ -101,7 +100,7 @@ describe("VerifySignUpForm", () => {
   it("should display error messages", () => {
     setError("Failed to send confirmation email");
 
-    render(<VerifySignUpForm />);
+    render(<VerifySignUpForm email={mockEmail} />);
 
     expect(
       screen.getByText("Failed to send confirmation email"),
@@ -111,7 +110,7 @@ describe("VerifySignUpForm", () => {
   it("should display success messages", () => {
     setSuccess("Confirmation email sent successfully");
 
-    render(<VerifySignUpForm />);
+    render(<VerifySignUpForm email={mockEmail} />);
 
     expect(
       screen.getByText("Confirmation email sent successfully"),
