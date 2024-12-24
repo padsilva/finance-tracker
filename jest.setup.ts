@@ -19,7 +19,6 @@ beforeAll(() => {
 });
 
 afterEach(() => {
-  console.log("passei no setup");
   cleanup();
   jest.clearAllMocks();
 });

@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 
 import { Footer } from "./footer";
 
@@ -14,7 +14,7 @@ describe("Footer", () => {
     expect(footer).toHaveClass("mt-auto", "border-t", "bg-nav-footer");
 
     // Check the content wrapper
-    const contentWrapper = footer.firstElementChild;
+    const contentWrapper = within(footer).getByText(/FinanceTracker/i);
     expect(contentWrapper).toHaveClass(
       "py-6",
       "text-center",

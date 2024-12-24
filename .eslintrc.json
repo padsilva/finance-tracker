@@ -5,6 +5,16 @@
     "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
+  "overrides": [
+    {
+      "files": "e2e/**",
+      "extends": "plugin:playwright/recommended"
+    },
+    {
+      "files": ["**/?(*.)+(spec|test).[jt]s?(x)"],
+      "extends": ["plugin:testing-library/react"]
+    }
+  ],
   "plugins": ["@typescript-eslint", "import"],
   "rules": {
     "@typescript-eslint/no-unused-vars": [

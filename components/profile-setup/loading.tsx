@@ -14,10 +14,10 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 interface LoadingSkeletonProps {
   description: string;
-  step: number;
   backLink?: boolean;
   checkboxesNumber?: number;
   fieldsNumber?: number;
+  step?: number;
 }
 
 const FormCheckboxFieldSkeleton = () => (
@@ -76,7 +76,7 @@ export const LoadingSkeleton: React.FC<LoadingSkeletonProps> = ({
       animate="animate"
       variants={pageVariants}
     >
-      <ProgressBar step={step} description={description} />
+      {step && <ProgressBar step={step} description={description} />}
 
       <Card>
         <CardHeader className="text-center">

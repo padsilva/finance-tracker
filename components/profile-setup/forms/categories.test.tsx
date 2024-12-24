@@ -1,5 +1,3 @@
-import { act } from "react";
-
 import { render, screen, fireEvent } from "@testing-library/react";
 
 import { useProfileSetupForm } from "@/hooks/use-profile-setup-form";
@@ -116,9 +114,7 @@ describe("CategoriesForm", () => {
 
     // Add new category
     const addButton = screen.getByTestId("category-dialog");
-    await act(async () => {
-      fireEvent.click(addButton);
-    });
+    fireEvent.click(addButton);
 
     // Check new category is added
     const updatedCheckboxes = screen.getAllByTestId("form-checkbox");

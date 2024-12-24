@@ -27,8 +27,8 @@ describe("ProgressBar", () => {
     expect(screen.getByText("Step 2 of 4")).toBeInTheDocument();
     expect(screen.getByText("Test Description")).toBeInTheDocument();
 
-    const progressBar = screen.getByRole("progressbar");
-    expect(progressBar.children[0]).toHaveStyle("transform: translateX(-50%);");
+    const progressBar = screen.getByTestId("progress-indicator");
+    expect(progressBar).toHaveStyle("transform: translateX(-50%);");
   });
 
   it("should render static progress bar with correct content", () => {
@@ -37,17 +37,17 @@ describe("ProgressBar", () => {
     expect(screen.getByText("Step 2 of 4")).toBeInTheDocument();
     expect(screen.getByText("Test Description")).toBeInTheDocument();
 
-    const progressBar = screen.getByRole("progressbar");
-    expect(progressBar.children[0]).toHaveStyle("transform: translateX(-50%);");
+    const progressBar = screen.getByTestId("progress-indicator");
+    expect(progressBar).toHaveStyle("transform: translateX(-50%);");
   });
 
   it("should calculate progress value correctly", () => {
     const { rerender } = render(<StaticProgressBar {...defaultProps} />);
 
-    const progressBar = screen.getByRole("progressbar");
-    expect(progressBar.children[0]).toHaveStyle("transform: translateX(-50%);");
+    const progressBar = screen.getByTestId("progress-indicator");
+    expect(progressBar).toHaveStyle("transform: translateX(-50%);");
 
     rerender(<StaticProgressBar description="Test" step={4} />);
-    expect(progressBar.children[0]).toHaveStyle("transform: translateX(-0%);");
+    expect(progressBar).toHaveStyle("transform: translateX(-0%);");
   });
 });
