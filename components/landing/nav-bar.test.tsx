@@ -48,7 +48,7 @@ describe("NavBar", () => {
     render(<NavBar />);
 
     // Initially menu should be closed
-    expect(screen.queryByRole("navigation")).toBeInTheDocument();
+    expect(screen.getByRole("navigation")).toBeInTheDocument();
     expect(screen.getByTestId("menu-icon")).toBeInTheDocument();
 
     // Open menu
@@ -88,9 +88,7 @@ describe("NavBar", () => {
     render(<NavBar />);
 
     // Initially mobile menu should be hidden
-    expect(
-      screen.queryByText("Sign In")?.closest(".border-t"),
-    ).not.toBeInTheDocument();
+    expect(screen.queryByTestId("mobile-menu")).not.toBeInTheDocument();
 
     // Open menu
     fireEvent.click(screen.getByRole("button", { name: /toggle menu/i }));

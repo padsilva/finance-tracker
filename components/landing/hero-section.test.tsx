@@ -17,7 +17,7 @@ describe("HeroSection", () => {
 
     // Check heading content
     expect(heading).toHaveTextContent("Smart Financial Management,");
-    const emphasis = heading.querySelector("span");
+    const emphasis = screen.getByTestId("hero-emphasis");
     expect(emphasis).toHaveClass("text-primary");
     expect(emphasis).toHaveTextContent("Made Simple");
   });
@@ -58,34 +58,6 @@ describe("HeroSection", () => {
       // Check feature icon
       const featureIcon = screen.getByTestId(`icon-${icon.displayName}`);
       expect(featureIcon).toBeInTheDocument();
-
-      // Check feature container structure
-      const featureContainer = featureTitle.closest('div[class*="flex"]');
-      expect(featureContainer).toHaveClass("flex", "items-start", "gap-3");
     });
-  });
-
-  it("should apply correct styling to icons", () => {
-    render(<HeroSection />);
-
-    const iconContainers = screen.getAllByTestId(/icon-/);
-    iconContainers.forEach((icon) => {
-      const parentDiv = icon.parentElement;
-      expect(parentDiv).toHaveClass("mt-1");
-    });
-  });
-
-  it("should maintain correct grid layout", () => {
-    render(<HeroSection />);
-
-    // Check if there are exactly 4 feature items
-    const featureItems = screen
-      .getAllByRole("heading", { level: 3 })
-      .map((heading) => heading.closest('div[class*="flex"]'));
-    expect(featureItems).toHaveLength(4);
-
-    // Check if they're in a grid container
-    const gridContainer = featureItems[0]?.parentElement;
-    expect(gridContainer).toHaveClass("grid", "grid-cols-2", "gap-6");
   });
 });

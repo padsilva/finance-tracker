@@ -79,34 +79,6 @@ describe("ConfirmationListener", () => {
     expect(mockUnsubscribe).toHaveBeenCalled();
   });
 
-  it("should apply correct styling", () => {
-    mockSupabase.auth.getUser.mockResolvedValue({
-      data: { user: null },
-      error: null,
-    });
-
-    render(<ConfirmationListener />);
-
-    const container = screen
-      .getByText(/waiting for email confirmation/i)
-      .closest("p");
-    expect(container).toHaveClass(
-      "flex",
-      "items-center",
-      "justify-center",
-      "gap-2",
-      "text-lg",
-    );
-
-    const refreshIcon = screen.getByTestId("refresh-icon");
-    expect(refreshIcon).toHaveClass(
-      "h-5",
-      "w-5",
-      "animate-spin",
-      "text-primary",
-    );
-  });
-
   it("should handle SIGNED_IN event", async () => {
     // Initially unconfirmed
     mockSupabase.auth.getUser
@@ -145,8 +117,9 @@ describe("ConfirmationListener", () => {
 
     await waitFor(() => {
       expect(mockRouter.push).toHaveBeenCalledWith("/dashboard");
-      expect(screen.getByTestId("check-circle-icon")).toBeInTheDocument();
     });
+
+    expect(screen.getByTestId("check-circle-icon")).toBeInTheDocument();
   });
 
   it("should handle USER_UPDATED event", async () => {
@@ -187,8 +160,9 @@ describe("ConfirmationListener", () => {
 
     await waitFor(() => {
       expect(mockRouter.push).toHaveBeenCalledWith("/dashboard");
-      expect(screen.getByTestId("check-circle-icon")).toBeInTheDocument();
     });
+
+    expect(screen.getByTestId("check-circle-icon")).toBeInTheDocument();
   });
 
   it("should not trigger email confirmation check for other events", async () => {

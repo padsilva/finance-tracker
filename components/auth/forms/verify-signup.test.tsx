@@ -81,10 +81,11 @@ describe("VerifySignUpForm", () => {
 
     await waitFor(() => {
       expect(mockFormAction).toHaveBeenCalled();
-      const formData = mockFormAction.mock.calls[0][0];
-      expect(formData.get("email")).toBe(mockEmail);
-      expect(formData.get("captchaToken")).toBe("mock-captcha-token");
     });
+
+    const formData = mockFormAction.mock.calls[0][0];
+    expect(formData.get("email")).toBe(mockEmail);
+    expect(formData.get("captchaToken")).toBe("mock-captcha-token");
   });
 
   it("should show loading state during submission", () => {

@@ -27,7 +27,9 @@ export const HeroSection = () => (
   <div className="flex-1">
     <h1 className="mb-4 text-4xl font-bold text-foreground">
       Smart Financial Management,{" "}
-      <span className="text-primary">Made Simple</span>
+      <span className="text-primary" data-testid="hero-emphasis">
+        Made Simple
+      </span>
     </h1>
     <p className="mb-8 text-lg text-muted-foreground">
       Track expenses, manage budgets, and achieve your financial goals with our

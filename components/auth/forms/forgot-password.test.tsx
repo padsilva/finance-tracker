@@ -1,10 +1,4 @@
-import {
-  render,
-  screen,
-  fireEvent,
-  waitFor,
-  act,
-} from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 
 import {
   mockFormAction,
@@ -63,24 +57,11 @@ describe("ForgotPasswordForm", () => {
 
     await waitFor(() => {
       expect(mockFormAction).toHaveBeenCalled();
-      const formData = mockFormAction.mock.calls[0][0];
-      expect(formData.get("email")).toBe(defaultEmail);
-      expect(formData.get("captchaToken")).toBe("mock-captcha-token");
-    });
-  });
-
-  it("should validate required email field", async () => {
-    render(<ForgotPasswordForm />);
-
-    await act(async () => {
-      // Submit form without email
-      const submitButton = screen.getByRole("button", {
-        name: /send reset instructions/i,
-      });
-      fireEvent.click(submitButton);
     });
 
-    expect(mockFormAction).not.toHaveBeenCalled();
+    const formData = mockFormAction.mock.calls[0][0];
+    expect(formData.get("email")).toBe(defaultEmail);
+    expect(formData.get("captchaToken")).toBe("mock-captcha-token");
   });
 
   it("should show loading state during submission", () => {

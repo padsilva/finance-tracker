@@ -71,13 +71,14 @@ describe("SignUpForm", () => {
     await waitFor(() => {
       // Check form submission
       expect(mockFormAction).toHaveBeenCalled();
-      const formData = mockFormAction.mock.calls[0][0];
-      expect(formData.get("fullName")).toBe("John Doe");
-      expect(formData.get("email")).toBe("john@example.com");
-      expect(formData.get("password")).toBe("Password123!");
-      expect(formData.get("confirmPassword")).toBe("Password123!");
-      expect(formData.get("captchaToken")).toBe("mock-captcha-token");
     });
+
+    const formData = mockFormAction.mock.calls[0][0];
+    expect(formData.get("fullName")).toBe("John Doe");
+    expect(formData.get("email")).toBe("john@example.com");
+    expect(formData.get("password")).toBe("Password123!");
+    expect(formData.get("confirmPassword")).toBe("Password123!");
+    expect(formData.get("captchaToken")).toBe("mock-captcha-token");
   });
 
   it("should validate required fields", async () => {

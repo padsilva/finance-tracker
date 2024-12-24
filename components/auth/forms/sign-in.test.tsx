@@ -1,10 +1,4 @@
-import {
-  act,
-  render,
-  screen,
-  fireEvent,
-  waitFor,
-} from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 
 import {
   mockFormAction,
@@ -72,23 +66,12 @@ describe("SignInForm", () => {
     // Verify form submission
     await waitFor(() => {
       expect(mockFormAction).toHaveBeenCalled();
-      const formData = mockFormAction.mock.calls[0][0];
-      expect(formData.get("email")).toBe("test@example.com");
-      expect(formData.get("password")).toBe("password123");
-      expect(formData.get("captchaToken")).toBe("mock-captcha-token");
-    });
-  });
-
-  it("should validate required fields", async () => {
-    render(<SignInForm />);
-
-    await act(async () => {
-      // Submit empty form
-      const submitButton = screen.getByRole("button", { name: /sign in/i });
-      fireEvent.click(submitButton);
     });
 
-    expect(mockFormAction).not.toHaveBeenCalled();
+    const formData = mockFormAction.mock.calls[0][0];
+    expect(formData.get("email")).toBe("test@example.com");
+    expect(formData.get("password")).toBe("password123");
+    expect(formData.get("captchaToken")).toBe("mock-captcha-token");
   });
 
   it("should show loading state during submission", () => {

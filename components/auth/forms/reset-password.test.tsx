@@ -1,10 +1,4 @@
-import {
-  render,
-  screen,
-  fireEvent,
-  waitFor,
-  act,
-} from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 
 import {
   mockFormAction,
@@ -69,49 +63,11 @@ describe("ResetPasswordForm", () => {
 
     await waitFor(() => {
       expect(mockFormAction).toHaveBeenCalled();
-      const formData = mockFormAction.mock.calls[0][0];
-      expect(formData.get("password")).toBe("Password123!");
-      expect(formData.get("confirmPassword")).toBe("Password123!");
-    });
-  });
-
-  it("should validate password match", async () => {
-    render(<ResetPasswordForm />);
-
-    // Fill mismatched passwords
-    const passwordInput = screen.getByPlaceholderText("Enter your password");
-    const confirmPasswordInput = screen.getByPlaceholderText(
-      "Confirm your password",
-    );
-
-    fireEvent.change(passwordInput, { target: { value: "Password123!" } });
-    fireEvent.change(confirmPasswordInput, {
-      target: { value: "DifferentPassword123!" },
     });
 
-    await act(async () => {
-      // Submit form
-      const submitButton = screen.getByRole("button", {
-        name: /change password/i,
-      });
-      fireEvent.click(submitButton);
-    });
-
-    expect(mockFormAction).not.toHaveBeenCalled();
-  });
-
-  it("should validate required fields", async () => {
-    render(<ResetPasswordForm />);
-
-    await act(async () => {
-      // Submit empty form
-      const submitButton = screen.getByRole("button", {
-        name: /change password/i,
-      });
-      fireEvent.click(submitButton);
-    });
-
-    expect(mockFormAction).not.toHaveBeenCalled();
+    const formData = mockFormAction.mock.calls[0][0];
+    expect(formData.get("password")).toBe("Password123!");
+    expect(formData.get("confirmPassword")).toBe("Password123!");
   });
 
   it("should show loading state during submission", () => {

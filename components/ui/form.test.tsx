@@ -1,5 +1,3 @@
-import { act } from "react";
-
 import { render, fireEvent, screen } from "@testing-library/react";
 import { Mail, LockIcon, DollarSign, User, Building } from "lucide-react";
 import { useForm } from "react-hook-form";
@@ -108,9 +106,9 @@ describe("Form Components", () => {
       const toggleButton = screen.getByTestId("toggle-visibility");
 
       expect(input).toHaveAttribute("type", "password");
-      await act(async () => {
-        fireEvent.click(toggleButton);
-      });
+
+      fireEvent.click(toggleButton);
+
       expect(input).toHaveAttribute("type", "text");
     });
 
@@ -140,17 +138,10 @@ describe("Form Components", () => {
       render(<TestComponent />);
       const input = screen.getByPlaceholderText("0.00");
 
-      // Change the value
-      await act(async () => {
-        fireEvent.change(input, { target: { value: "123.4567" } });
-      });
+      fireEvent.change(input, { target: { value: "123.4567" } });
 
-      // Trigger blur event
-      await act(async () => {
-        fireEvent.blur(input);
-      });
+      fireEvent.blur(input);
 
-      // Check formatted value
       expect(input).toHaveValue(123.46);
     });
   });
@@ -440,16 +431,12 @@ describe("Form Components", () => {
       const checkbox = screen.getByRole("checkbox");
       expect(checkbox).not.toBeChecked(); // Initial state
 
-      // Test checking
-      await act(async () => {
-        fireEvent.click(checkbox);
-      });
+      fireEvent.click(checkbox);
+
       expect(checkbox).toBeChecked();
 
-      // Test unchecking
-      await act(async () => {
-        fireEvent.click(checkbox);
-      });
+      fireEvent.click(checkbox);
+
       expect(checkbox).not.toBeChecked();
     });
   });
