@@ -20,7 +20,7 @@ const ROUTES = {
     "/verify-signup",
     "/email-confirmed",
   ],
-  PROTECTED: ["/dashboard"],
+  PROTECTED: ["/dashboard", "/transactions", "/analytics", "/settings"],
   DASHBOARD: "/dashboard",
   ROOT: "/",
 };
