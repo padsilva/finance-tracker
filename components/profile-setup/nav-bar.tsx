@@ -1,8 +1,6 @@
-import Image from "next/image";
-
+import { Brand } from "@/components/shared/brand";
+import { UserMenu } from "@/components/shared/user-menu";
 import { createClient } from "@/lib/supabase/server";
-
-import { UserMenu } from "./user-menu";
 
 export async function NavBar() {
   const supabase = await createClient();
@@ -14,16 +12,7 @@ export async function NavBar() {
   return (
     <nav className="border-b bg-nav-footer">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-8 py-6">
-        <div className="flex items-center gap-3">
-          <Image
-            src="/icon.svg"
-            alt="FinanceTracker Logo"
-            width={32}
-            height={32}
-            priority
-          />
-          <span className="text-lg font-bold md:text-xl">FinanceTracker</span>
-        </div>
+        <Brand />
 
         <UserMenu
           email={user?.email ?? ""}

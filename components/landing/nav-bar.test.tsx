@@ -27,7 +27,7 @@ describe("NavBar", () => {
     // Check brand name
     const brandName = screen.getByText("FinanceTracker");
     expect(brandName).toBeInTheDocument();
-    expect(brandName).toHaveClass("text-xl", "font-bold");
+    expect(brandName).toHaveClass("text-lg", "font-bold", "md:text-xl");
   });
 
   it("should render desktop navigation when not on email-confirmed page", () => {

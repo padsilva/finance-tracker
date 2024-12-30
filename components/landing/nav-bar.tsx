@@ -3,10 +3,10 @@
 import { useState } from "react";
 
 import { Menu, X } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { Brand } from "@/components/shared/brand";
 import { Button } from "@/components/ui/button";
 
 export const NavBar: React.FC = () => {
@@ -19,16 +19,8 @@ export const NavBar: React.FC = () => {
   return (
     <nav className="border-b bg-nav-footer">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-8 py-6">
-        <div className="flex items-center gap-3">
-          <Image
-            src="/icon.svg"
-            alt="FinanceTracker Logo"
-            width={32}
-            height={32}
-            priority
-          />
-          <span className="text-xl font-bold">FinanceTracker</span>
-        </div>
+        <Brand />
+
         {path !== "/email-confirmed" ? (
           <>
             <div className="hidden gap-4 md:flex" data-testid="desktop-menu">

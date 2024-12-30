@@ -25,6 +25,7 @@ const config: Config = {
     "stores/**/*.{js,jsx,ts,tsx}",
     "utils/**/*.{js,jsx,ts,tsx}",
     "!components/ui/**/*.{js,jsx,ts,tsx}",
+    "!hooks/use-mobile.tsx",
   ],
   testPathIgnorePatterns: ["e2e/"],
 };

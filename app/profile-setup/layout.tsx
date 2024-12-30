@@ -1,4 +1,4 @@
-import { NavBar } from "@/components/profile-setup/nav/nav-bar";
+import { NavBar } from "@/components/profile-setup/nav-bar";
 import { Footer } from "@/components/shared/footer";
 
 export default function ProfileSetupLayout({
