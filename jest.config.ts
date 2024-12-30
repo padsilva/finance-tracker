@@ -24,6 +24,7 @@ const config: Config = {
     "hooks/**/*.{js,jsx,ts,tsx}",
     "stores/**/*.{js,jsx,ts,tsx}",
     "utils/**/*.{js,jsx,ts,tsx}",
+    "!components/ui/**/*.{js,jsx,ts,tsx}",
   ],
   testPathIgnorePatterns: ["e2e/"],
 };
