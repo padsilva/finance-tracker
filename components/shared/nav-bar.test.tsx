@@ -2,6 +2,12 @@ import { render, screen } from "@testing-library/react";
 
 import { NavBar } from "./nav-bar";
 
+jest.mock("./custom-trigger", () => ({
+  CustomTrigger: () => (
+    <button data-testid="mock-custom-trigger">Toggle</button>
+  ),
+}));
+
 let mockFullName: string | null = "Test User";
 jest.mock("@/lib/supabase/server", () => ({
   createClient: jest.fn(() => ({
