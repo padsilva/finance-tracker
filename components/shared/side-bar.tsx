@@ -1,3 +1,5 @@
+"use client";
+
 import {
   ArrowRightLeft,
   LayoutDashboard,
@@ -13,7 +15,9 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarTrigger,
 } from "@/components/ui/sidebar";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const items = [
   {
@@ -38,24 +42,29 @@ const items = [
   },
 ];
 
-export const SideBar = () => (
-  <Sidebar>
-    <SidebarHeader className="px-6 py-5">
-      <Brand withLogo={false} />
-    </SidebarHeader>
-    <SidebarContent className="px-4">
-      <SidebarMenu>
-        {items.map((item) => (
-          <SidebarMenuItem key={item.title}>
-            <SidebarMenuButton asChild>
-              <a href={item.url}>
-                <item.icon />
-                <span>{item.title}</span>
-              </a>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        ))}
-      </SidebarMenu>
-    </SidebarContent>
-  </Sidebar>
-);
+export const SideBar = () => {
+  const isMobile = useIsMobile();
+
+  return (
+    <Sidebar>
+      <SidebarHeader className="flex flex-row justify-between px-6 py-5">
+        <Brand withLogo={false} />
+        {isMobile ? <SidebarTrigger closeIcon={true} /> : null}
+      </SidebarHeader>
+      <SidebarContent className="px-4">
+        <SidebarMenu>
+          {items.map((item) => (
+            <SidebarMenuItem key={item.title}>
+              <SidebarMenuButton asChild>
+                <a href={item.url}>
+                  <item.icon />
+                  <span>{item.title}</span>
+                </a>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          ))}
+        </SidebarMenu>
+      </SidebarContent>
+    </Sidebar>
+  );
+};

@@ -2,14 +2,14 @@
 
 import * as React from "react";
 
-import { ViewVerticalIcon } from "@radix-ui/react-icons";
 import { Slot } from "@radix-ui/react-slot";
 import { VariantProps, cva } from "class-variance-authority";
+import { PanelLeft, PanelLeftClose } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
-import { Sheet, SheetContent } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
   Tooltip,
@@ -205,6 +205,7 @@ const Sidebar = React.forwardRef<
     if (isMobile) {
       return (
         <Sheet open={openMobile} onOpenChange={setOpenMobile} {...props}>
+          <SheetTitle className="hidden"></SheetTitle>
           <SheetContent
             data-sidebar="sidebar"
             data-mobile="true"
@@ -215,6 +216,7 @@ const Sidebar = React.forwardRef<
               } as React.CSSProperties
             }
             side={side}
+            aria-describedby={undefined}
           >
             <div className="flex h-full w-full flex-col">{children}</div>
           </SheetContent>
@@ -271,8 +273,10 @@ Sidebar.displayName = "Sidebar";
 
 const SidebarTrigger = React.forwardRef<
   React.ComponentRef<typeof Button>,
-  React.ComponentProps<typeof Button>
->(({ className, onClick, ...props }, ref) => {
+  React.ComponentProps<typeof Button> & {
+    closeIcon?: boolean;
+  }
+>(({ className, onClick, closeIcon, ...props }, ref) => {
   const { toggleSidebar } = useSidebar();
 
   return (
@@ -288,7 +292,7 @@ const SidebarTrigger = React.forwardRef<
       }}
       {...props}
     >
-      <ViewVerticalIcon />
+      {closeIcon ? <PanelLeftClose /> : <PanelLeft />}
       <span className="sr-only">Toggle Sidebar</span>
     </Button>
   );
