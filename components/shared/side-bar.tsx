@@ -6,6 +6,8 @@ import {
   PieChart,
   Settings,
 } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import { Brand } from "@/components/shared/brand";
 import {
@@ -44,6 +46,7 @@ const items = [
 
 export const SideBar = () => {
   const isMobile = useIsMobile();
+  const pathname = usePathname();
 
   return (
     <Sidebar>
@@ -55,11 +58,11 @@ export const SideBar = () => {
         <SidebarMenu>
           {items.map((item) => (
             <SidebarMenuItem key={item.title}>
-              <SidebarMenuButton asChild>
-                <a href={item.url}>
+              <SidebarMenuButton asChild isActive={pathname === item.url}>
+                <Link href={item.url}>
                   <item.icon />
                   <span>{item.title}</span>
-                </a>
+                </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
           ))}
